@@ -5,58 +5,66 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 
-import Avatar from "@mui/material/Avatar"
+// import Avatar from "@mui/material/Avatar"
 import Button from "@mui/material/Button"
 import Box from "@mui/material/Box"
 import Container from "@mui/material/Container"
 import Typography from "@mui/material/Typography"
-import Link from "@mui/material/Link"
+// import Link from "@mui/material/Link"
 import Tabs from "@mui/material/Tabs"
 import Tab from "@mui/material/Tab"
 
 import IconButton from "@mui/material/IconButton"
-import LinkIcon from '@mui/icons-material/Link';
+// import LinkIcon from '@mui/icons-material/Link';
 import { HiLink } from "react-icons/hi"
 
 import { FaInstagram } from "react-icons/fa"
 import { FaGithub } from "react-icons/fa"
 import { FaLinkedin } from "react-icons/fa"
-import { FaYoutube } from "react-icons/fa"
+import { FaTwitter } from "react-icons/fa"
+import { FaMedium } from "react-icons/fa"
+import { FaRegIdCard } from "react-icons/fa"
 
-import { GiWeightLiftingUp } from "react-icons/gi"
+// import { GiWeightLiftingUp } from "react-icons/gi"
 
 
 
 const profiles = {
-  youtube: {
-    name: "YouTube",
-    desc: "My videos",
-    url: "https://www.youtube.com/channel/UCCIFp-Se_xjfYc94H04oK7Q",
-    icon: <FaYoutube />,
-  },
   github: {
     name: "GitHub",
     desc: "My open-source projects",
-    url: "https://github.com/BrianRuizy",
+    url: "https://github.com/Huulamnguyen",
     icon: <FaGithub />,
+  },
+  medium: {
+    name: "Medium",
+    desc: "I share my tech journey blogs",
+    url: "https://medium.com/@liamdev",
+    icon: <FaMedium />,
+  },
+  twitter: {
+    name: "Twitter",
+    desc: "@liamdev5",
+    url: "https://twitter.com/liamdev5",
+    icon: <FaTwitter />,
   },
   linkedin: {
     name: "LinkedIn",
     desc: "My professional profile",
-    url: "https://www.linkedin.com/in/brianruizy/",
+    url: "https://www.linkedin.com/in/huulamnguyen/",
     icon: <FaLinkedin />,
   },
   instagram: {
     name: "Instagram",
-    desc: "@brianruizy",
-    url: "https://www.instagram.com/brianruizy/",
+    desc: "@L.A.M_N.G",
+    url: "https://www.instagram.com/l.a.m_n.g/",
     icon: <FaInstagram />,
   },
-  hevyapp: {
-    name: "Hevy",
-    desc: "Code 'BRIANRUIZ' for 20% off",
-    url: "https://hevyapp.com?ref=brianruiz",
-    icon: <GiWeightLiftingUp />,
+  Resume: {
+    name: "Resume",
+    desc: "My Skills, Education, Experience and more",
+    url: "https://resume.io/r/gNzy8XZVB",
+    icon: <FaRegIdCard />,
   }
 }
 
@@ -78,11 +86,11 @@ const NotFoundPage = ({ data, location }) => {
         >
           <HiLink  fontSize={20}/>
         </IconButton>
-        {"Brian's Links"}
+        {"Connect Me"}
       </Box>
       }
     >
-      <Seo title={"Links"} />
+      <Seo title={"My social media links"} />
       <Container
         maxWidth="string"
         disableGutters
@@ -131,10 +139,10 @@ const NotFoundPage = ({ data, location }) => {
               }}
             />
             <Tab
-              label="Gear List"
+              label="Resume"
               active
               component="a"
-              href="/gear"
+              href="/resume"
               sx={{
                 textTransform: "capitalize",
                 fontWeight: 400,
@@ -143,7 +151,7 @@ const NotFoundPage = ({ data, location }) => {
               }}
             />
             <Tab
-              label="My Links"
+              label="Connect Me"
               component="a"
               href="/links"
               sx={{

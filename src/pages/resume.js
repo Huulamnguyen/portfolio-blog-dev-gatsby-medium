@@ -248,11 +248,11 @@ const GearPage = ({ data, location }) => {
           >
             <BackpackIcon fontSize="small" />
           </IconButton>
-          {"Brian's Gear"}
+          {"Resume"}
         </Box>
       }
     >
-      <Seo title={"My Gear"} />
+      <Seo title={"My Resume"} />
       <Container
         maxWidth="string"
         disableGutters
@@ -302,10 +302,10 @@ const GearPage = ({ data, location }) => {
               }}
             />
             <Tab
-              label="Gear List"
+              label="Resume"
               active
               component="a"
-              href="/gear"
+              href="/resume"
               sx={{
                 textTransform: "capitalize",
                 fontWeight: 400,
@@ -314,7 +314,7 @@ const GearPage = ({ data, location }) => {
               }}
             />
             <Tab
-              label="My Links"
+              label="Connect Me"
               component="a"
               href="/links"
               sx={{
@@ -335,9 +335,7 @@ const GearPage = ({ data, location }) => {
           }}
           icon={"🧐"}
         >
-          This is a list of the gear I actually own and recommend. The affiliate
-          links come at no extra cost but it does however help support my
-          content creation!
+          Check out my resume for more informationa about skills, experience, education and more.
         </Alert>
 
         <Box sx={{ display: "flex", flexDirection: "column" }}>
