@@ -23,7 +23,7 @@ const profiles = {
     name: "Instagram",
     url: "https://www.instagram.com/l.a.m_n.g/",
     icon: "https://johnhoward.on.ca/peterborough/wp-content/uploads/sites/12/2021/03/instagram-logo-svg-vector-for-print.svg",
-    followers: "1139",
+    followers: "410",
   },
   // youtube: {
   //   name: "YouTube",
