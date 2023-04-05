@@ -2,18 +2,18 @@ require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
-    title: `Brian Ruiz`,
+    title: `Lam Nguyen`,
     author: {
-      name: `Brian Ruiz`,
-      summary: `Brian Ruiz is a Software Engineer based out of Houston, TX.`,
+      name: `Lam Nguyen`,
+      summary: `Lam nguyen is a Software Engineer based out of Long Island, NY.`,
     },
-    description: `Brian Ruiz is a Software Engineer based out of Houston, TX.`,
-    siteUrl: `https://b-r.io`,
+    description: `Lam nguyen is a Software Engineer based out of Long Island, NY.`,
+    siteUrl: ``,
     social: {
-      linkedin: `brianruizy`,
-      github: `BrianRuizy`,
-      instagram: `brianruizy`,
-      youtube: `UCCIFp-Se_xjfYc94H04oK7Q`,
+      linkedin: ``,
+      github: ``,
+      instagram: ``,
+      youtube: ``,
     },
   },
   plugins: [

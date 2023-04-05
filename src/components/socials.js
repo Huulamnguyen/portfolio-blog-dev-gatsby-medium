@@ -9,40 +9,46 @@ import Typography from "@mui/material/Typography"
 const profiles = {
   github: {
     name: "GitHub",
-    url: "https://github.com/BrianRuizy",
+    url:  "https://github.com/Huulamnguyen",
     icon: "https://cdn-icons-png.flaticon.com/512/25/25231.png",
     followers: "",
   },
-  linkedin: {
-    name: "LinkedIn",
-    url: "https://www.linkedin.com/in/brianruizy/",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png",
-    followers: "1227",
-  },
-  instagram: {
-    name: "Instagram",
-    url: "https://www.instagram.com/brianruizy/",
-    icon: "https://johnhoward.on.ca/peterborough/wp-content/uploads/sites/12/2021/03/instagram-logo-svg-vector-for-print.svg",
-    followers: "1139",
-  },
-  youtube: {
-    name: "YouTube",
-    url: "https://www.youtube.com/channel/UCCIFp-Se_xjfYc94H04oK7Q",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/768px-YouTube_full-color_icon_%282017%29.svg.png",
-    followers: "602",
-  },
+  // linkedin: {
+  //   name: "LinkedIn",
+  //   url: "https://www.linkedin.com/in/brianruizy/",
+  //   icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png",
+  //   followers: "1227",
+  // },
+  // instagram: {
+  //   name: "Instagram",
+  //   url: "https://www.instagram.com/brianruizy/",
+  //   icon: "https://johnhoward.on.ca/peterborough/wp-content/uploads/sites/12/2021/03/instagram-logo-svg-vector-for-print.svg",
+  //   followers: "1139",
+  // },
+  // youtube: {
+  //   name: "YouTube",
+  //   url: "https://www.youtube.com/channel/UCCIFp-Se_xjfYc94H04oK7Q",
+  //   icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/768px-YouTube_full-color_icon_%282017%29.svg.png",
+  //   followers: "602",
+  // },
   medium: {
     name: "Medium",
-    url: "https://medium.com/@brianruizy",
+    url: "https://medium.com/@liamdev",
     icon: "https://miro.medium.com/max/1400/1*psYl0y9DUzZWtHzFJLIvTw.png",
-    followers: "10",
+    followers: "23",
+  },
+   twitter: {
+    name: "Twitter",
+    url: "https://twitter.com/liamdev5",
+    icon: "https://seeklogo.com/images/T/twitter-icon-circle-blue-logo-94339974C6-seeklogo.com.png",
+    followers: "49",
   },
 }
 
 const Socials = () => {
   const [gitFollowers, setGitFollowers] = React.useState(0)
   React.useEffect(() => {
-    fetch("https://api.github.com/users/BrianRuizy")
+    fetch("https://api.github.com/users/huulamnguyen")
       .then(res => res.json())
       .then(data => {
         setGitFollowers(data.followers)

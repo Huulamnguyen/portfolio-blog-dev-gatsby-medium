@@ -143,10 +143,10 @@ export default function PanelRight({ extraDrawerContent }) {
                 <Box display={"flex"} gap={2} alignItems={"center"}>
                   <Avatar
                     alt="Brian Ruiz"
-                    src="https://www.b-r.io/avatar.png"
+                    src=""
                     sx={{ width: 64, height: 64, backgroundColor: "divider" }}
                   >
-                    BR
+                    LN
                   </Avatar>
                   <div>
                     <Typography
@@ -159,7 +159,7 @@ export default function PanelRight({ extraDrawerContent }) {
                         color: "text.primary",
                       }}
                     >
-                      Brian Ruiz
+                      Lam Nguyen
                     </Typography>
                     <Typography variant="body2" sx={{ color: "text.disabled" }}>
                       Software Engineer
@@ -167,7 +167,7 @@ export default function PanelRight({ extraDrawerContent }) {
                   </div>
                 </Box>
                 <Typography variant="body2" sx={{  color: "text.secondary" }}>
-                  I'm a full-stack Software Engineer based out of Houston, TX. 
+                  I'm a full-stack Software Engineer based out of Long Island, NY. 
                   Here you'll find my personal blog posts and case studies 
                   on all things tech.
                 </Typography>

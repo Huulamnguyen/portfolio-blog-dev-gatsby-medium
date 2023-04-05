@@ -158,8 +158,8 @@ const Layout = ({
                     >
                       {isRootPath && (
                         <Avatar
-                          alt="Brian Ruiz"
-                          src="https://www.b-r.io/avatar.png"
+                          alt="Lam Nguyen"
+                          src="src/images/avatar.png"
                           sx={{
                             width: 48,
                             height: 48,
@@ -173,7 +173,7 @@ const Layout = ({
                             },
                           }}
                         >
-                          BR
+                          LN
                         </Avatar>
                       )}
 
@@ -243,7 +243,7 @@ const Layout = ({
                               lineHeight: "20px",
                             }}
                           >
-                            More stories from Brian
+                            More stories from me
                           </Typography>
                           <Button
                             variant="outlined"
@@ -280,7 +280,7 @@ const Layout = ({
                           component={Link}
                           underline="none"
                           sx={{ color: "text.disabled" }}
-                          to="https://github.com/BrianRuizy/gatsby-medium-blog"
+                          to="https://github.com/Huulamnguyen/portfolio-blog-dev-gatsby-medium"
                           target="_blank"
                         >
                           <Typography
@@ -310,7 +310,16 @@ const Layout = ({
                               },
                             }}
                           >
-                            {" "}Built by Brian Ruiz
+                            {" "} Built by Lam Nguyen, thanks and inspired by {" "}
+                            <MuiLink
+                              component={Link}
+                              underline="none"
+                              sx={{ color: "text.disabled" }}
+                              to="https://www.b-r.io/"
+                              target="_blank"
+                            >
+                              Brian Ruizy
+                            </MuiLink>
                           </Box>
                         </Typography>
                       </Box>
