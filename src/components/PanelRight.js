@@ -101,7 +101,7 @@ export default function PanelRight({ extraDrawerContent }) {
                 }}
                 // email to the author
                 onClick={() => {
-                  window.location.href = "mailto:brianruiz0123@gmail.com"
+                  window.location.href = "mailto:liamnguyen.swe@@gmail.com"
                 }}
               >
                 Contact Me

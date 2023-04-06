@@ -10,10 +10,11 @@ module.exports = {
     description: `Lam nguyen is a Software Engineer based out of Long Island, NY.`,
     siteUrl: `https://liamdev.vercel.app/`,
     social: {
-      linkedin: ``,
-      github: ``,
-      instagram: ``,
-      youtube: ``,
+      linkedin: `https://www.linkedin.com/in/huulamnguyen/`,
+      github: `https://github.com/Huulamnguyen`,
+      instagram: `https://www.instagram.com/l.a.m_n.g/`,
+      twitter: `https://twitter.com/liamdev5`,
+      medium:`https://medium.com/@liamdev`
     },
   },
   plugins: [

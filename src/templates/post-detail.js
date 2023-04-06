@@ -261,7 +261,7 @@ const PostDetailTemplate = ({ data, location }) => {
                   BR
                 </Avatar>
                 <Stack>
-                  <Typography variant="body1">Brian Ruiz</Typography>
+                  <Typography variant="body1">Lam Nguyen</Typography>
                   <Typography color="text.secondary" variant="body2">
                     {post.frontmatter.date}
                     <Box
