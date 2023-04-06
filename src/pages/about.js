@@ -13,21 +13,21 @@ import IconButton from "@mui/material/IconButton"
 import BackpackIcon from "@mui/icons-material/Backpack"
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
 import Alert from "@mui/material/Alert"
-import Chip from "@mui/material/Chip"
+// import Chip from "@mui/material/Chip"
 import MuiLink from "@mui/material/Link"
 
-import Card from "@mui/material/Card"
-import CardActions from "@mui/material/CardActions"
-import CardContent from "@mui/material/CardContent"
-import CardMedia from "@mui/material/CardMedia"
-import Button from "@mui/material/Button"
+// import Card from "@mui/material/Card"
+// import CardActions from "@mui/material/CardActions"
+// import CardContent from "@mui/material/CardContent"
+// import CardMedia from "@mui/material/CardMedia"
+// import Button from "@mui/material/Button"
 import Tabs from "@mui/material/Tabs"
 import Tab from "@mui/material/Tab"
 
 import Accordion from "@mui/material/Accordion"
 import AccordionSummary from "@mui/material/AccordionSummary"
 import AccordionDetails from "@mui/material/AccordionDetails"
-import ListItemText from '@mui/material/ListItemText';
+// import ListItemText from '@mui/material/ListItemText';
 
 // Import Icons from React-icon/fA
 import { FaCode } from "react-icons/fa"
@@ -140,7 +140,7 @@ const AboutPage = ({ data, location }) => {
             "& .MuiSvgIcon-root": { color: "primary.dark" },
           }}
           icon={"🧐"}
-        > Check out my resume for more informationa about skills, experience, education and more.
+        > Check out my resume for more information about skills, experience, education and more.
         </Alert>
 
         <Box sx={{ display: "flex", flexDirection: "column" }}>
