@@ -4,18 +4,14 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-
-// import Avatar from "@mui/material/Avatar"
 import Button from "@mui/material/Button"
 import Box from "@mui/material/Box"
 import Container from "@mui/material/Container"
 import Typography from "@mui/material/Typography"
-// import Link from "@mui/material/Link"
 import Tabs from "@mui/material/Tabs"
 import Tab from "@mui/material/Tab"
 
 import IconButton from "@mui/material/IconButton"
-// import LinkIcon from '@mui/icons-material/Link';
 import { HiLink } from "react-icons/hi"
 
 import { FaInstagram } from "react-icons/fa"
@@ -24,9 +20,6 @@ import { FaLinkedin } from "react-icons/fa"
 import { FaTwitter } from "react-icons/fa"
 import { FaMedium } from "react-icons/fa"
 import { FaRegIdCard } from "react-icons/fa"
-
-// import { GiWeightLiftingUp } from "react-icons/gi"
-
 
 
 const profiles = {
@@ -84,7 +77,7 @@ const NotFoundPage = ({ data, location }) => {
             color: "text.primary",
           }}
         >
-          <HiLink  fontSize={20}/>
+          <HiLink fontSize={20}/>
         </IconButton>
         {"Connect Me"}
       </Box>
@@ -139,10 +132,10 @@ const NotFoundPage = ({ data, location }) => {
               }}
             />
             <Tab
-              label="Resume"
+              label="About"
               active
               component="a"
-              href="/resume"
+              href="/about"
               sx={{
                 textTransform: "capitalize",
                 fontWeight: 400,

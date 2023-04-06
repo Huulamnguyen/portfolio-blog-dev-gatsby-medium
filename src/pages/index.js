@@ -127,9 +127,9 @@ const Index = ({ data, location }) => {
             />
             
             <Tab
-              label="Resume"
+              label="About"
               component="a"
-              href="/resume"
+              href="/about"
               sx={{
                 textTransform: "capitalize",
                 fontWeight: 400,
