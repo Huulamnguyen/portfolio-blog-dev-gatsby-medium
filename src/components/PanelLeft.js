@@ -130,7 +130,7 @@ export default function RightDrawer({ isRootPath, ThemeButton }) {
       <Box>
         <Avatar
           alt="Lam Nguyen"
-          src=""
+          src="https://liamdev.vercel.app/avatar.png"
           sx={{ width: 32, height: 32, backgroundColor: "divider" }}
         >
           LN

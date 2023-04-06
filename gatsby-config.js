@@ -8,7 +8,7 @@ module.exports = {
       summary: `Lam nguyen is a Software Engineer based out of Long Island, NY.`,
     },
     description: `Lam nguyen is a Software Engineer based out of Long Island, NY.`,
-    siteUrl: `https://b-r.io`,
+    siteUrl: `https://liamdev.vercel.app/`,
     social: {
       linkedin: ``,
       github: ``,

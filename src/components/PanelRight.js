@@ -142,8 +142,8 @@ export default function PanelRight({ extraDrawerContent }) {
               >
                 <Box display={"flex"} gap={2} alignItems={"center"}>
                   <Avatar
-                    alt="Brian Ruiz"
-                    src=""
+                    alt="Lam Nguyen"
+                    src="https://liamdev.vercel.app/avatar.png"
                     sx={{ width: 64, height: 64, backgroundColor: "divider" }}
                   >
                     LN
