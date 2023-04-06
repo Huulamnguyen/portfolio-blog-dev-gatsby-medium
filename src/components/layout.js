@@ -159,7 +159,7 @@ const Layout = ({
                       {isRootPath && (
                         <Avatar
                           alt="Lam Nguyen"
-                          src="src/images/avatar.png"
+                          src="https://liamdev.vercel.app/avatar.png"
                           sx={{
                             width: 48,
                             height: 48,

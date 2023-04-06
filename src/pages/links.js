@@ -62,7 +62,7 @@ const profiles = {
   },
   Resume: {
     name: "Resume",
-    desc: "My Skills, Education, Experience and more",
+    desc: "Skills, Education, Experience",
     url: "https://resume.io/r/gNzy8XZVB",
     icon: <FaRegIdCard />,
   }
