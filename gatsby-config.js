@@ -188,8 +188,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `BR Blog`,
-        short_name: `b-r.io`,
+        name: `Lam Blog`,
+        short_name: `lamng.io`,
         start_url: `/`,
         background_color: `#121212`,
         theme_color: `???`,

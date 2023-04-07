@@ -167,7 +167,7 @@ const PostDetailTemplate = ({ data, location }) => {
 
   const handleTooltipOpen = () => {
     setOpen(true)
-    navigator.clipboard.writeText(`https://b-r.io${location.pathname}`)
+    navigator.clipboard.writeText(`https://lamng.io${location.pathname}`)
     setTimeout(() => {
       setOpen(false)
     }, 700)
@@ -246,7 +246,7 @@ const PostDetailTemplate = ({ data, location }) => {
             >
               <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
                 <Avatar
-                  alt="Brian Ruiz"
+                  alt="Lam Nguyen"
                   src="../avatar.png"
                   sx={{
                     width: 48,
@@ -258,7 +258,7 @@ const PostDetailTemplate = ({ data, location }) => {
                     },
                   }}
                 >
-                  BR
+                  LN
                 </Avatar>
                 <Stack>
                   <Typography variant="body1">Lam Nguyen</Typography>
