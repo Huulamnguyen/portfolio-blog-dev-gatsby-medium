@@ -13,11 +13,11 @@ import Grid from "@mui/material/Grid"
 import Typography from "@mui/material/Typography"
 
 const ClampTypography = {
-  overflow: 'hidden',
+  overflow: "hidden",
   textOverflow: "ellipsis",
   display: "-webkit-box",
   WebkitLineClamp: "2",
-  lineClamp: "2", 
+  lineClamp: "2",
   WebkitBoxOrient: "vertical",
 }
 
@@ -68,7 +68,7 @@ const PostItem = ({ data }) => {
                   "& h2:hover": {
                     color: "unset",
                   },
-                }
+                },
               }}
             >
               <Typography
@@ -97,7 +97,7 @@ const PostItem = ({ data }) => {
                 style={ClampTypography}
                 sx={{
                   display: "initial",
-                  fontFamily: 'Charter',
+                  fontFamily: "Charter",
                   marginBottom: "1rem",
                   color: "text.postBody",
                   "@media (max-width: 600px)": {
@@ -110,11 +110,7 @@ const PostItem = ({ data }) => {
             </Box>
             <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
               {data.frontmatter.category && (
-                <Chip
-                  label={data.frontmatter.category}
-                  size="small"
-                  disabled
-                />
+                <Chip label={data.frontmatter.category} size="small" disabled />
               )}
               <Typography sx={{ color: "text.secondary" }} variant="body2">
                 {`${data.timeToRead} min read`}
@@ -134,7 +130,7 @@ const PostItem = ({ data }) => {
             <GatsbyImage
               image={image}
               alt={data.frontmatter.featuredImage.name}
-              style={{borderRadius: "4px"}}
+              style={{ borderRadius: "4px" }}
             />
           </Box>
         </Link>

@@ -540,37 +540,6 @@ const AboutPage = ({ data, location }) => {
                       3.59)
                     </Typography>
 
-                    {/* DevOps BootCamp */}
-                    <Typography
-                      variant="h3"
-                      sx={{
-                        fontSize: "16px !important",
-                        letterSpacing: 0,
-                        fontWeight: "500",
-                        lineHeight: "20px",
-                        color: "text.primary",
-                      }}
-                    >
-                      {" "}
-                      DevOps Certificate at DevOps BootCamp Tech With Nana
-                    </Typography>
-                    <Typography variant="body2" sx={{ color: "text.disabled" }}>
-                      APRIL 2023 - DECEMBER 2023 Garden City, New York
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        letterSpacing: 0,
-                        color: "text.primary",
-                        margin: "10px",
-                        lineHeight: "2.0",
-                      }}
-                    >
-                      <FaRegHandPointRight /> I'm building actual real-life
-                      DevOps processes from start to end, to implement things,
-                      writing pipelines, automation scripts, etc.
-                    </Typography>
-
                     {/* Software Engineering Certificate Program  */}
                     <Typography
                       variant="h3"
