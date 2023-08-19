@@ -130,7 +130,7 @@ const PostItem = ({ data }) => {
             <GatsbyImage
               image={image}
               alt={data.frontmatter.featuredImage.name}
-              style={{ borderRadius: "4px" }}
+              style={{ borderRadius: "5px" }}
             />
           </Box>
         </Link>
