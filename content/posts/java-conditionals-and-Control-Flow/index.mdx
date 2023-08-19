@@ -1,6 +1,6 @@
 ---
 title: Java I Conditionals and Control Flow
-description: "else Statement, else if Statements, if Statement, Nested Conditional Statements, AND Operator, NOT Operator, The OR Operator, Conditional Operators - Order of Evaluation"
+description: "else Statement, else if Statements, if Statement, Nested Conditional Statements, Switch Statement, AND Operator, NOT Operator, The OR Operator, Conditional Operators - Order of Evaluation"
 date: "2023-08-18T18:16:26.784Z"
 category: "Case Study"
 tags: ["Java"]
@@ -22,4 +22,208 @@ else{
     System.out.println("condition1 is not true");
 }
 // Prints: condition1 is not true
+```
+
+## else if Statements
+
+**_else-if_** statements can be chained together to check multiple conditions. Once a condition is **_true_**, a code block will be executed and the conditional statement will be exited.
+
+There can be multiple **_else-if_** statements in a single conditional statement.
+
+```java
+int testScore = 76;
+char grade;
+
+if (testScore >= 90) {
+  grade = 'A';
+} else if (testScore >= 80) {
+  grade = 'B';
+} else if (testScore >= 70) {
+  grade = 'C';
+} else if (testScore >= 60) {
+  grade = 'D';
+} else {
+  grade = 'F';
+}
+
+System.out.println("Grade: " + grade); // Prints: C
+```
+
+# if Statement
+
+An **_if_** statement executes a block of code when a specified boolean expression is evaluated as **_true_**.
+
+```java
+if (true) {
+	System.out.println("This code executes");
+}
+// Prints: This code executes
+
+if (false) {
+	System.out.println("This code does not execute");
+}
+// There is no output for the above statement
+```
+
+# Java Short Hand If...Else (Ternary Operator)
+
+There is also a short-hand if else, which is known as the ternary operator because it consists of three operands.
+
+Instead of writing:
+
+```java
+int time = 20;
+if (time < 18) {
+  System.out.println("Good day.");
+} else {
+  System.out.println("Good evening.");
+}
+```
+
+You can simply write:
+
+```java
+int time = 20;
+String result = (time < 18) ? "Good day." : "Good evening.";
+System.out.println(result);
+```
+
+# Nested Conditional Statements
+
+A nested conditional statement is a conditional statement nested inside of another conditional statement.
+The outer conditional statement is evaluated first; if the condition is **_true_**, then the nested conditional statement will be evaluated.
+
+```java
+boolean studied = true;
+boolean wellRested = true;
+
+if (wellRested) {
+  System.out.println("Best of luck today!");
+  if (studied) {
+    System.out.println("You are prepared for your exam!");
+  } else {
+    System.out.println("Study before your exam!");
+  }
+}
+
+// Prints: Best of luck today!
+// Prints: You are prepared for your exam!
+```
+
+# Java Switch Statement
+
+Instead of writing many if..else statements, you can use the switch statement.
+
+This is how it works:
+
+- The switch expression is evaluated once.
+- The value of the expression is compared with the values of each case.
+- If there is a match, the associated block of code is executed.
+- The break and default keywords are optional, and will be described later in this chapter
+
+The example below uses the weekday number to calculate the weekday name:
+
+```java
+int day = 4;
+switch (day) {
+  case 1:
+    System.out.println("Monday");
+    break;
+  case 2:
+    System.out.println("Tuesday");
+    break;
+  case 3:
+    System.out.println("Wednesday");
+    break;
+  case 4:
+    System.out.println("Thursday");
+    break;
+  case 5:
+    System.out.println("Friday");
+    break;
+  case 6:
+    System.out.println("Saturday");
+    break;
+  case 7:
+    System.out.println("Sunday");
+    break;
+}
+// Outputs "Thursday" (day 4)
+```
+
+# The **_break_** Keyword
+
+When Java reaches a break keyword, it breaks out of the switch block.
+
+This will stop the execution of more code and case testing inside the block.
+
+When a match is found, and the job is done, it's time for a break. There is no need for more testing.
+
+# The **_default_** Keyword
+
+The **_default_** keyword specifies some code to run if there is no case match:
+
+```java
+int day = 4;
+switch (day) {
+  case 6:
+    System.out.println("Today is Saturday");
+    break;
+  case 7:
+    System.out.println("Today is Sunday");
+    break;
+  default:
+    System.out.println("Looking forward to the Weekend");
+}
+// Outputs "Looking forward to the Weekend"
+```
+
+# AND Operator
+
+The AND logical operator is represented by **_&&_**. This operator returns **_true_** if the **_boolean_** expressions on both sides of the operator are **_true_**; otherwise, it returns **_false_**.
+
+```java
+System.out.println(true && true); // Prints: true
+System.out.println(true && false); // Prints: false
+System.out.println(false && true); // Prints: false
+System.out.println(false && false); // Prints: false
+```
+
+# NOT Operator
+
+The NOT logical operator is represented by **_!_**. This operator negates the value of a boolean expression.
+
+```java
+boolean a = true;
+System.out.println(!a); // Prints: false
+
+System.out.println(!false) // Prints: true
+```
+
+# The OR Operator
+
+The logical **_OR_** operator is represented by **_||_**.
+This operator will return **_true_** if at least one of the **_boolean_** expressions being compared has a **_true_** value; otherwise, it will return **_false_**.
+
+```java
+System.out.println(true || true); // Prints: true
+System.out.println(true || false); // Prints: true
+System.out.println(false || true); // Prints: true
+System.out.println(false || false); // Prints: false
+```
+
+# Conditional Operators - Order of Evaluation
+
+If an expression contains multiple conditional operators, the order of evaluation is as follows: **_Expressions in parentheses -> NOT -> AND -> OR_**.
+
+```java
+boolean foo = true && (!false || true); // true
+/*
+(!false || true) is evaluated first because it is contained within parentheses.
+
+Then !false is evaluated as true because it uses the NOT operator.
+
+Next, (true || true) is evaluation as true.
+
+Finally, true && true is evaluated as true meaning foo is true. */
 ```

@@ -1,0 +1,93 @@
+---
+title: Java II Loops
+description: "For-each statement in Java, While loop, Do/While Loop, For Loop"
+date: "2023-08-18T18:16:26.784Z"
+category: "Case Study"
+tags: ["Java"]
+featuredImage: "../../../src/images/Java-loops.png"
+pinned: true
+---
+
+# Java **_While_** Loop
+
+The while loop loops through a block of code as long as a specified condition is true:
+
+```java
+int i = 0;
+while (i < 5) {
+  System.out.println(i);
+  i++;
+}
+```
+
+# The **_Do/While_** Loop
+
+The **_do/while_** loop is a variant of the while loop.
+This loop will execute the code block once, before checking if the condition is true, then it will repeat the loop as long as the condition is true.
+
+```java
+int i = 0;
+do {
+  System.out.println(i);
+  i++;
+}
+while (i < 5);
+```
+
+# Java **_For_** Loop
+
+When you know exactly how many times you want to loop through a block of code, use the for loop instead of a while loop:
+
+```java
+for (int i = 0; i < 5; i++) {
+  System.out.println(i);
+}
+```
+
+## Nested Loops
+
+It is also possible to place a loop inside another loop. This is called a **_nested loop_**.
+
+The "inner loop" will be executed one time for each iteration of the "outer loop":
+
+```java
+// Outer loop
+for (int i = 1; i <= 2; i++) {
+  System.out.println("Outer: " + i); // Executes 2 times
+
+  // Inner loop
+  for (int j = 1; j <= 3; j++) {
+    System.out.println(" Inner: " + j); // Executes 6 times (2 * 3)
+  }
+}
+```
+
+# For-each statement in Java
+
+In Java, the for-each statement allows you to directly loop through each item in an array or ArrayList and perform some action with each item.
+
+When creating a for-each statement, you must include the for keyword and two expressions inside of parentheses, separated by a colon. These include:
+
+1. The handle for an element we’re currently iterating over.
+
+2. The source array or ArrayList we’re iterating over.
+
+```java
+// array of numbers
+int[] numbers = {1, 2, 3, 4, 5};
+
+// for-each loop that prints each number in numbers
+// int num is the handle while numbers is the source array
+for (int num : numbers) {
+	System.out.println(num);
+}
+```
+
+There is also a "for-each" loop, which is used exclusively to loop through elements in an array:
+
+```java
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+for (String i : cars) {
+  System.out.println(i);
+}
+```

@@ -1,0 +1,72 @@
+---
+title: Java Break and Continue
+description: "Java Break and Continue"
+date: "2023-08-18T18:16:26.784Z"
+category: "Case Study"
+tags: ["Java"]
+featuredImage: "../../../src/images/Java-break-continue.png"
+pinned: true
+---
+
+# Java **_Break_**
+
+You have already seen the **_break_** statement used in an earlier chapter of this tutorial. It was used to **_"jump out"_** of a **_switch_** statement.
+
+The break statement can also be used to **_jump out_** of a loop.
+
+This example**_stops the loop_** when i is equal to 4:
+
+```java
+for (int i = 0; i < 10; i++) {
+  if (i == 4) {
+    break;
+  }
+  System.out.println(i);
+}
+```
+
+# Java **_Continue_**
+
+The continue statement **_breaks one iteration_** (or skip) (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.
+
+This example skips the value of 4:
+
+```java
+for (int i = 0; i < 10; i++) {
+  if (i == 4) {
+    continue;
+  }
+  System.out.println(i);
+}
+```
+
+# Break and Continue in While Loop
+
+You can also use **_break_** and **_continue_** in while loops:
+
+**_Break_** Example:
+
+```java
+int i = 0;
+while (i < 10) {
+  System.out.println(i);
+  i++;
+  if (i == 4) {
+    break;
+  }
+}
+```
+
+**_Continue_** Example:
+
+```java
+int i = 0;
+while (i < 10) {
+  if (i == 4) {
+    i++;
+    continue;
+  }
+  System.out.println(i);
+  i++;
+}
+```

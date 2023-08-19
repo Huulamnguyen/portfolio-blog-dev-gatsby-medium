@@ -1,0 +1,110 @@
+---
+title: Java II String Methods
+description: "length() String Method in Java, concat() String Method in Java, String Method equals() in Java, indexOf() String Method in Java, charAt() String Method in Java, toUpperCase() and toLowerCase() String Methods"
+date: "2023-08-18T18:16:26.784Z"
+category: "Case Study"
+tags: ["Java"]
+featuredImage: "../../../src/images/Java-string-methods.png"
+pinned: true
+---
+
+# length() String Method in Java
+
+In Java, the **_length()_** string method returns the total number of characters – the length – of a **_String_**.
+
+```java
+String str = "Codecademy";
+
+System.out.println(str.length());
+// prints 10
+```
+
+# concat() String Method in Java
+
+In Java, the **_concat()_** string method is used to append one **_String_** to the end of another **_String_**.
+This method returns a **_String_** representing the text of the combined strings.
+
+```java
+String s1 = "Hello";
+String s2 = " World!";
+
+String s3 = s1.concat(s2);
+// concatenates strings s1 and s2
+
+System.out.println(s3);
+// prints "Hello World!"
+```
+
+# String Method equals() in Java
+
+In Java, the **_equals()_** string method tests for equality between two Strings.
+
+**_equals()_** compares the contents of each **_String_**. If all of the characters between the two match, the method returns **_true_**. If any of the characters do not match, it returns **_false_**.
+
+Additionally, if you want to compare two strings without considering upper/lower cases, you can use **_.equalsIgnoreCase()_**.
+
+```java
+String s1 = "Hello";
+String s2 = "World";
+
+System.out.println(s1.equals("Hello"));
+// prints true
+
+System.out.println(s2.equals("Hello"));
+// prints false
+
+System.out.println(s2.equalsIgnoreCase("world"));
+// prints true
+```
+
+# indexOf() String Method in Java
+
+In Java, the **_indexOf()_** string method returns the first occurence of a character or a substring in a **_String_**.
+The character/substring that you want to find the index of goes inside of the ().
+
+If **_indexOf()_** cannot find the character or substring, it will return **_-1_**.
+
+```java
+String str = "Hello World!";
+
+System.out.println(str.indexOf("l"));
+// prints 2
+
+System.out.println(str.indexOf("Wor"));
+// prints 6
+
+System.out.println(str.indexOf("z"));
+// prints -1
+```
+
+# charAt() String Method in Java
+
+In Java, the **_charAt()_** string method returns the character of a String at a specified index. The index value is passed inside of the (), and should lie between 0 and **_length()-1_**.
+
+```java
+String str = "This is a string";
+
+System.out.println(str.charAt(0));
+// prints 'T'
+
+System.out.println(str.charAt(15));
+// prints 'g'
+```
+
+# toUpperCase() and toLowerCase() String Methods
+
+In Java, we can easily convert a String to upper and lower case with the help of a few string methods:
+
+- **_toUpperCase()_** returns the string value converted to uppercase.
+
+- **_toLowerCase()_** returns the string value converted to lowercase.
+
+```java
+String str = "Hello World!";
+
+String uppercase = str.toUpperCase();
+// uppercase = "HELLO WORLD!"
+
+String lowercase = str.toLowerCase();
+// lowercase = "hello world!"
+```
