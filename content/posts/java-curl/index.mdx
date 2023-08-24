@@ -1,0 +1,118 @@
+---
+title: What is curl?
+description: "Make basic requests with the curl command-line tool"
+date: "2023-08-24T16:33:37.911Z"
+category: "Case Study"
+tags: ["Java", "Curl"]
+featuredImage: "../../../src/images/java.png"
+pinned: true
+---
+
+# What is curl?
+
+**_curl_** is a command-line tool for transferring data from or to a server. It supports multiple protocols, including HTTP.
+In this article, you will learn how to use curl to make requests from the command-line, as well as how to parse the responses to those requests.
+
+For example, say you are building a cryptocurrency trading app. If you built the back-end API first, you could access your exchange rate data before even building a webpage:
+
+```java
+$ curl https://api.coinbase.com/v2/prices/BTC-USD/buy
+
+{
+  "data": {
+    "base": "BTC",
+    "currency": "USD",
+    "amount": "33006.51"
+  }
+}
+```
+
+# Making GET Requests
+
+The most basic curl command is:
+
+```java
+curl http://example.com/abc
+
+```
+
+# Specifying a Request’s HTTP Method Using **_-X_**
+
+By default, **_curl_** makes **_GET_** requests, but you can use the **_-X_** option (short for **_--request_**) followed by the HTTP verb (eg. **_PUT, POST, DELETE_**, etc.) of your choice to make other types of requests.
+
+For example, to make a DELETE request to http://sample-api.com/sample-resource/id, you would run:
+
+```java
+curl -X DELETE http://sample-api.com/sample-resource/id
+```
+
+OR:
+
+```java
+curl --request DELETE http://sample-api.com/sample-resource/id
+
+```
+
+# Adding Data to the Request Body Using **_-d_**
+
+To send data in the body of a request made with **_curl_**, you can use the **_-d_** option (short for **_--data_**) followed by the data you wish to send.
+For example, to update the name of the user with **_id=1_**, run:
+
+```java
+curl -X PUT -d "username=Lily" http://sample-api.com/users/1
+
+```
+
+Additional key-value pairs can be added with the ampersand **_&_** symbol:
+
+```java
+curl -X PUT -d "username=Lily&height=180" http://sample-api.com/users/1
+
+```
+
+Note that if you include the **_-d_** option and do not specify an HTTP verb, **_curl_** will default to sending a **_POST_** request. That means that
+
+```java
+curl -X POST -d "username=Lily" http://sample-api.com/users
+```
+
+AND:
+
+```java
+curl -d "username=Lily" http://sample-api.com/users
+
+```
+
+are equivalent.
+
+# Setting the Request’s Content Type Using **_-H_**
+
+By default, **_curl_** sends **_POST/PUT_** requests with the content-type **_application/x-www-form-urlencoded_**.
+If you are using **_curl_** to make a request to an API that expects to receive data in JSON format, you must set the request’s content-type to **_application/json_** by adding a request heade
+
+Use the **_-H_** (short for **_--header_**) option, followed by the header you wish to add to your request, to specify the request’s content-type like so:
+
+```java
+curl -d "{ \"username\": \"Lily\" }" -H "Content-Type: application/json" http://sample-api.com/users
+```
+
+# Parsing Server Responses Using **_-i_**
+
+Adding the **_-i_** option (short for **_--include_**) to your **_curl_** commands will cause **_curl_** to print the response header to the command shell in addition to the response body.
+
+```java
+$ curl -i https://api.coinbase.com/v2/prices/BTC-USD/buy
+
+HTTP/2 200
+date: ...
+content-type: ...
+...
+```
+
+Some of the client errors you are most likely to encounter include
+
+- **_401_**, which indicates that the client is not authenticated and therefore not allowed to access the specified resource
+- **_403_**, which indicates that the client is authenticated but not permitted to view the specified resource
+- **_404_**, which indicates that the specified resource cannot be found on the server
+
+Some [HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
