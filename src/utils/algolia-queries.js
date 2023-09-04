@@ -50,7 +50,7 @@ function tagToAlgoliaRecord(tag) {
   return {
     objectID: tag.fieldValue,
     fieldValue: tag.fieldValue,
-    totalCount: tag.totalCount, 
+    totalCount: tag.totalCount,
   }
 }
 
@@ -60,12 +60,12 @@ const queries = [
     transformer: ({ data }) => data.pages.edges.map(pageToAlgoliaRecord),
     indexName,
     settings: { attributesToSnippet: [`description:20`, `date`, `tags`] },
-    
   },
   {
     query: pageQueryTags,
-    transformer: ({ data }) => data.tags.group.map( tag => (tagToAlgoliaRecord(tag))),
-    indexName2, 
+    transformer: ({ data }) =>
+      data.tags.group.map(tag => tagToAlgoliaRecord(tag)),
+    indexName2,
     settings: { attributesToSnippet: [`totalCount`] },
   },
 ]

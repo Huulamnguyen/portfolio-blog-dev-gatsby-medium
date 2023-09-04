@@ -80,12 +80,7 @@ const TagsPage = ({
               : `${group.length} topic`}
             {" to read about"}
           </Typography>
-          <MuiLink
-            href="/"
-            color="inherit"
-            component={Link}
-            to="/"
-          >
+          <MuiLink href="/" color="inherit" component={Link} to="/">
             Back home
           </MuiLink>
         </Box>

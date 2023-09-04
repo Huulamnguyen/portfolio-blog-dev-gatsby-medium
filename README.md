@@ -54,12 +54,12 @@ contact form is super easy to set up with getform.io.
 Simply add your API / endpoint URL to the action attribute of your form and you're good to go. See https://app.getform.io/forms for documentation. The location for this component is `src/components/ContactDrawer.js`.
 
 ```jsx
-  <form
-    action="https://getform.io/f/faf8d119-4334-4fcc-ae56-2dc4de9cb453"
-    method="POST"
-  >
+<form
+  action="https://getform.io/f/faf8d119-4334-4fcc-ae56-2dc4de9cb453"
+  method="POST"
+>
   ...
-  </form>
+</form>
 ```
 
 ## Run the project
@@ -73,9 +73,9 @@ nvm use 18
 npm install -g gatsby-cli
 ```
 
-1. Install project dependencies ```npm install```. If having problems installing try with legacy peer dependencies, ```npm install --legacy-peer-deps```.
+1. Install project dependencies `npm install`. If having problems installing try with legacy peer dependencies, `npm install --legacy-peer-deps`.
 
-2. Start Developing. Navigate into your new site’s directory and start up the local server ```gatsby develop``` 🎉.
+2. Start Developing. Navigate into your new site’s directory and start up the local server `gatsby develop` 🎉.
 
 See the [reference guide](https://www.gatsbyjs.com/docs/reference/gatsby-cli/) to read more on other commands you can use with the Gatsby CLI.
 
@@ -94,6 +94,5 @@ lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem quisqu
   Visit <a href="https://python.org">here</a> for docs and examples.
 </Alert>
 ```
+
 ![image](https://user-images.githubusercontent.com/23439187/179371961-520835ab-e4ef-4086-90d7-791e26934732.png)
-
-
