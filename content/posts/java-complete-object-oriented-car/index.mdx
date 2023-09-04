@@ -1,0 +1,256 @@
+---
+title: Building a complete object oriented Car
+description: "Practice object oriented conccept by building Car and CarDealerShip classes"
+date: "2023-09-04T20:12:41.388Z"
+category: "Case Study"
+tags: ["Java"]
+featuredImage: "../../../src/images/car-object-oriented.png"
+pinned: true
+---
+
+# Java Coding Challenge
+
+- Task 1: The Car class defines the following fields. BodyType should use **_enum_**
+
+```java
+private String make;
+private String model;
+private String bodyType;  // Should this really be a String?
+private int productionYear;
+private double price;
+```
+
+- Task 2: Create getter and setter methods for each field of the Car class. Ensure that the setter methods perform the following argument validations and throw an IllegalArgumentException with an appropriate error message if the input is invalid:
+
+- Task 3: Create a constructor that initializes the fields of a newly created object by calling the setter methods.
+
+- Task 4: Test your constructor and getter/setter methods by creating instances (objects) of the Car class. Uncomment each test one by one to ensure that the methods throw an IllegalArgumentException when the input is invalid. Remember to re-comment the test before moving on to the next one.
+
+### Final Solution:
+
+```java
+package model;
+
+public class Car {
+
+    private String make;
+    private String model;
+    private BodyType bodyType;
+    private int productionYear;
+    private double price;
+
+    public enum BodyType { SEDAN, COUPE, HATCHBACK, SUV, TRUCK, VAN };
+
+    public static final int MINIMUM_YEAR = 1900;
+    public static final double MINIMUM_PRICE = 0;
+    public static final double MAXIMUM_PRICE = 200000;
+
+    public Car(String make, String model, BodyType bodyType, int productionYear, double price){
+        setMake(make);
+        setModel(model);
+        setBodyType(bodyType);
+        setProductionYear(productionYear);
+        setPrice(price);
+    }
+
+    public Car(Car source) {
+        setMake(source.make);
+        setModel(source.model);
+        setBodyType(source.bodyType);
+        setProductionYear(source.productionYear);
+        setPrice(source.price);
+    }
+
+    public String getMake(){
+        return this.make;
+    }
+
+    public void setMake(String make){
+        if(make == null || make.isBlank()) throw new IllegalArgumentException("Make cannot be null or blank.");
+        this.make = make;
+    }
+
+    public String getModel(){
+        return this.model;
+    }
+
+    public void setModel(String model){
+        if(model == null || model.isBlank()) throw new IllegalArgumentException("Model cannot be null or blank.");
+
+        this.model = model;
+    }
+
+    public BodyType getBodyType(){
+        return this.bodyType;
+    }
+
+    public void setBodyType(BodyType bodyType){
+        if(bodyType == null) throw new IllegalArgumentException("BodyType cannot be null.");
+        this.bodyType = bodyType;
+    }
+
+    public int getProductionYear(){
+        return this.productionYear;
+    }
+
+    public void setProductionYear(int year){
+        if(year <= MINIMUM_YEAR) throw new IllegalArgumentException("Production year must be greater than or equal to the minimum year.");
+        this.productionYear = year;
+    }
+
+    public double getPrice(){
+        return this.price;
+    }
+
+    public void setPrice(double price){
+        if(price < MINIMUM_PRICE || price > MAXIMUM_PRICE) throw new IllegalArgumentException("Price must be within a valid range.");
+        this.price = price;
+    }
+
+}
+```
+
+```java
+package model;
+import java.util.ArrayList;
+
+public class CarDealership {
+
+    private ArrayList<Car> cars;
+
+    public CarDealership(){
+        cars = new ArrayList<Car>();
+    }
+
+    public Car getCar(int index){
+        Car car = cars.get(index);
+        return car;
+    }
+
+    public void setCar(Car car, int index){
+        cars.set(index, new Car(car));
+    }
+
+    public void addCar(Car car){
+        cars.add(new Car(car));
+    }
+
+}
+```
+
+```java
+import java.util.Scanner;
+
+import model.Car;
+import model.Car.BodyType;
+import model.CarDealership;
+
+public class Main {
+
+    public static boolean isNullOrBlank(String input){
+        return input == null || input.isBlank();
+    }
+
+    public static boolean invalidYear(int year){
+        return year < Car.MINIMUM_YEAR;
+    }
+
+    public static boolean invalidPrice(double price) {
+        return price < Car.MINIMUM_PRICE|| price > Car.MAXIMUM_PRICE;
+    }
+
+    public static boolean invalidBodyType(String bodyType){
+        try {
+            BodyType.valueOf(bodyType.toUpperCase());
+            return false;
+        } catch(IllegalArgumentException e){
+            return true;
+        }
+    }
+
+    public static BodyType promptForBodyType(Scanner scanner) {
+        while (true) {
+            System.out.print("\nPlease enter a valid car body type: ");
+            String bodyType = scanner.nextLine();
+            if (!invalidBodyType(bodyType)) {
+                return BodyType.valueOf(bodyType.toUpperCase());
+            }
+        }
+    }
+
+    public static String promptForMake(Scanner scanner) {
+        while (true) {
+            System.out.print("\nPlease enter a valid car make: ");
+            String make = scanner.nextLine();
+            if (!isNullOrBlank(make)) {
+                return make;
+            }
+        }
+    }
+
+    public static String promptForModel(Scanner scanner) {
+        while (true) {
+            System.out.print("\nPlease enter a valid car model: ");
+            String model = scanner.nextLine();
+            if (!isNullOrBlank(model)) {
+                return model;
+            }
+        }
+    }
+
+    public static int promptForYear(Scanner scanner) {
+        while (true) {
+            System.out.print("\nPlease enter a valid production year: ");
+             if (!scanner.hasNextInt()) {
+                scanner.next();
+                continue;
+            }
+
+            int year = scanner.nextInt();
+            if (!invalidYear(year)) {
+                return year;
+            }
+        }
+    }
+
+    public static double promptForPrice(Scanner scanner) {
+        while (true) {
+            System.out.print("\nPlease enter a valid car price: ");
+            if (!scanner.hasNextDouble()) {
+                scanner.next();
+                continue;
+            }
+            double price = scanner.nextDouble();
+
+            if (!invalidPrice(price)) {
+                return price;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String make = promptForMake(scanner);
+        String model = promptForModel(scanner);
+        BodyType bodyType = promptForBodyType(scanner);
+        int year = promptForYear(scanner);
+        double price = promptForPrice(scanner);
+
+        Car newCar = new Car(make, model, bodyType, year, price);
+
+        CarDealership dealership = new CarDealership();
+        dealership.addCar(newCar);
+
+        System.out.println("Car added to the dealership: " + newCar.getMake() + " " + newCar.getModel());
+
+}
+}
+```
+
+# Conlusion:
+
+- Using **_enum_**
+- Using **_Static_** and **_Final_**
+- Using package and import
+- Map Collection: HashMap and TreeMap
