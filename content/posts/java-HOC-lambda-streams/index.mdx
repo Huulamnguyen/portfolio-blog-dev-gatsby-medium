@@ -1,0 +1,139 @@
+---
+title: Java Higher Order Functions and Lambda (Streams)
+description: "Some basics higher order functions in Java with Streams"
+date: "2023-09-12T00:58:46.080Z"
+category: "Case Study"
+tags: ["Java"]
+featuredImage: "../../../src/images/java-higher-order-functions.png"
+pinned: true
+---
+
+# Movie class
+
+```java
+  package model;
+
+public class Movie {
+    private String title;
+    private String director;
+    private String genre;
+    private int releaseYear;
+    private double rating;
+
+    public Movie(String title, String director, String genre, int releaseYear, double rating) {
+        this.title = title;
+        this.director = director;
+        this.genre = genre;
+        this.releaseYear = releaseYear;
+        this.rating = rating;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public int getReleaseYear() {
+        return releaseYear;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    @Override
+    public String toString() {
+        return title + " (" + releaseYear + ") - Directed by " + director + ", Genre: " + genre + ", Rating: " + rating;
+    }
+}
+```
+
+# MovieStore class
+
+```java
+package model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MovieStore {
+    private List<Movie> movies;
+
+    public MovieStore() {
+        this.movies = new ArrayList<>();
+    }
+
+    public void addMovie(Movie movie) {
+        movies.add(movie);
+    }
+
+    public List<Movie> filterByGenre(String genre) {
+        return movies.stream()
+                .filter(movie -> movie.getGenre().equalsIgnoreCase(genre))
+                .toList();
+    }
+
+    public List<Movie> sortByReleaseYear() {
+        return movies.stream()
+                .sorted((movie1, movie2) -> Integer.compare(movie1.getReleaseYear(), movie2.getReleaseYear()))
+                .toList();
+    }
+
+    public List<Movie> getTopRatedMovies(int n) {
+        return movies.stream()
+                .sorted((movie1, movie2) -> Double.compare(movie2.getRating(), movie1.getRating()))
+                .limit(n)
+                .toList();
+    }
+}
+```
+
+# Main class
+
+```java
+import java.util.List;
+
+import model.Movie;
+import model.MovieStore;
+
+public class Main {
+    public static void main(String[] args) {
+        Movie movie1 = new Movie("Inception", "Christopher Nolan", "Sci-Fi", 2010, 8.8);
+        Movie movie2 = new Movie("The Dark Knight", "Christopher Nolan", "Action", 2008, 9.0);
+        Movie movie3 = new Movie("The Matrix", "Lana Wachowski, Lilly Wachowski", "Sci-Fi", 1999, 8.7);
+        Movie movie4 = new Movie("Pulp Fiction", "Quentin Tarantino", "Crime", 1994, 8.9);
+
+
+        MovieStore movieStore = new MovieStore();
+        movieStore.addMovie(movie1);
+        movieStore.addMovie(movie2);
+        movieStore.addMovie(movie3);
+        movieStore.addMovie(movie4);
+
+
+        List<Movie> sciFiMovies = movieStore.filterByGenre("Sci-Fi");
+        List<Movie> sortedMovies = movieStore.sortByReleaseYear();
+        List<Movie> topRatedMovies = movieStore.getTopRatedMovies(3);
+
+
+        System.out.println("Sci-Fi Movies:");
+        sciFiMovies.forEach(movie -> System.out.println(movie));
+
+
+        System.out.println("\nSorted by Release Year:");
+        sortedMovies.forEach(movie -> System.out.println(movie));
+
+
+        System.out.println("\nTop Rated Movies:");
+        topRatedMovies.forEach(movie -> System.out.println(movie));
+
+    }
+}
+```
