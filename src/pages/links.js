@@ -21,7 +21,6 @@ import { FaTwitter } from "react-icons/fa"
 import { FaMedium } from "react-icons/fa"
 import { FaRegIdCard } from "react-icons/fa"
 
-
 const profiles = {
   github: {
     name: "GitHub",
@@ -56,9 +55,9 @@ const profiles = {
   Resume: {
     name: "Resume",
     desc: "Skills, Education, Experience",
-    url: "https://resume.io/r/gNzy8XZVB",
+    url: "https://docs.google.com/document/d/1h-buG5emsA-NMHMAhUKjSmRed8qICVgVesWikRyMFzQ/edit?usp=sharing",
     icon: <FaRegIdCard />,
-  }
+  },
 }
 
 const NotFoundPage = ({ data, location }) => {
@@ -69,18 +68,18 @@ const NotFoundPage = ({ data, location }) => {
       location={location}
       title={
         <Box sx={{ display: "flex", alignItems: "center" }}>
-        <IconButton
-          size="small"
-          sx={{
-            mr: 1,
-            backgroundColor: "action.selected",
-            color: "text.primary",
-          }}
-        >
-          <HiLink fontSize={20}/>
-        </IconButton>
-        {"Connect Me"}
-      </Box>
+          <IconButton
+            size="small"
+            sx={{
+              mr: 1,
+              backgroundColor: "action.selected",
+              color: "text.primary",
+            }}
+          >
+            <HiLink fontSize={20} />
+          </IconButton>
+          {"Connect Me"}
+        </Box>
       }
     >
       <Seo title={"My social media links"} />
