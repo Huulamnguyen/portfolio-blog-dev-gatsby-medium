@@ -41,7 +41,7 @@ const tagsPanel = () => (
             textDecoration: "none",
             "&:hover": {
               textDecoration: "underline",
-            }
+            },
             // "@media (max-width: 600px)": {
             //   display: "none",
             // }

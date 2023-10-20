@@ -7,7 +7,7 @@ import Box from "@mui/material/Box"
 import Stack from "@mui/material/Stack"
 import Typography from "@mui/material/Typography"
 
-import PushPinIcon from '@mui/icons-material/PushPin';
+import PushPinIcon from "@mui/icons-material/PushPin"
 
 const ClampTypography = {
   overflow: "hidden",
@@ -81,10 +81,15 @@ const ComponentName = () => (
                 <Box>
                   <Typography
                     variant="body2"
-                    sx={{ color: "text.secondary", display: "flex", alignItems: "center" }}
+                    sx={{
+                      color: "text.secondary",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
                     gutterBottom
                   >
-                    <PushPinIcon fontSize="inherit"/>&nbsp;{`Pinned • ${item.timeToRead}`} min read
+                    <PushPinIcon fontSize="inherit" />
+                    &nbsp;{`Pinned • ${item.timeToRead}`} min read
                   </Typography>
                   <Typography
                     variant="body1"
@@ -102,7 +107,7 @@ const ComponentName = () => (
                         "&:hover": {
                           color: "unset",
                         },
-                      }
+                      },
                     }}
                   >
                     {" "}
@@ -113,7 +118,7 @@ const ComponentName = () => (
                   <GatsbyImage
                     image={getImage(item.frontmatter.featuredImage)}
                     alt={item.frontmatter.featuredImage.name}
-                    style={{borderRadius: "4px"}}
+                    style={{ borderRadius: "4px" }}
                   />
                 </Box>
               </Box>
