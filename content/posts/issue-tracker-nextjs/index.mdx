@@ -10,7 +10,7 @@ pinned: true
 
 # Issue Tracker
 
-![Issue Tracker](https://github.com/Huulamnguyen/issue-tracker-nextjs/raw/main/public/issue-tracker-demo.png)
+![Issue Tracker](https://github.com/Huulamnguyen/issue-tracker-no-issue/raw/main/public/issue-tracker-demo.png)
 
 ## Description:
 
@@ -27,30 +27,36 @@ pinned: true
 - NextJS, TailwindCSS, Prisma, MySQL
 
 - Other tools:
-  - Zod: form validation
+  - Zod: form and request validation (both Frontend and backend)
   - Axios: fetching API
   - SimpleMDE: basic markdown interface
-  - Shopify APIs (for advanced features)
+  - ReChart: chart, sumnmary dashboard
+  - Radix UI and Next UI: front end development
+  - Shopify / Shopify APIs: to manage customers and orders
+  - Vercel: deployment
+  - Planet Scale: database deployment
+  - Google Cloud Console: Next Auth integration
 
 ## Core Features:
 
-- Create, update, delete issues (DONE)
-- View Issues, issue detail (DONE)
-- Dashboard (DONE)
+- [DONE] ISSUE: View Create, update, delete issues
+- [DONE] QUESTION: Vew, create, update, delete questions
+- [DONE] Dashboard: Chart, Summary
+- SETTING: Conffigure and connect to Shopify by Shopify APIs
 
 ## Advanced Features:
 
-- Authentication And Authorization with Next Auth (OAuth 2.0) (DONE)
-- Assign users, admin pannel (DONE)
-- Implement a descending sort on the Issue List page.
+- [DONE] Authentication And Authorization with Next Auth (OAuth 2.0)
+- [DONE] Assign users, admin pannel
+- [DONE] When an issue is assigned to a user, automatically set the status to IN_PROGRESS.
+- [DONE] On the Issue Detail page, add a drop-down list for changing the status of an issue
+- [DONE] Implement a support page that allow customers submit an issue, then show them on the Issue List
+- [IN_PROGRESS] Implement sending email when customers submit an issue or any update from their issues
+- [IN_PROGRESS] Implement a descending sort on the Issue List page.
 - Add a drop-down list to select the page size.
-- On the Issue Detail page, add a drop-down list for changing the status of an issue (similar to how we have a drop-down list for changing the assignee).
-- When an issue is assigned to a user, automatically set the status to IN_PROGRESS.
 - Implement the ability to filter issues by assignee.
 - Introduce a feature to add comments below an issue.
 - Integration with Shopify Admin API to handle orders, customers
-- Implement a support page that allow customers submit an issue, then show them on the Issue List
-- Implement sending email when customers submit an issue or any update from their issues
 
 ## Development Progress:
 
@@ -98,6 +104,10 @@ pinned: true
   - Setting up Error Tracking: Error Tracking Tools by sentry.io
   - Setting up the Production Database: using PLanetScale
   - Deploying to Vercel
+
+## Refactor:
+
+- DeleteIssueButton and DeleteQuestionButton to a single reusable DeleteButton components
 
 ## Development Getting Started
 
