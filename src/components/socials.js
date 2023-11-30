@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography"
 const profiles = {
   github: {
     name: "GitHub",
-    url:  "https://github.com/Huulamnguyen",
+    url: "https://github.com/Huulamnguyen",
     icon: "https://cdn-icons-png.flaticon.com/512/25/25231.png",
     followers: "",
   },
@@ -25,19 +25,13 @@ const profiles = {
     icon: "https://johnhoward.on.ca/peterborough/wp-content/uploads/sites/12/2021/03/instagram-logo-svg-vector-for-print.svg",
     followers: "410",
   },
-  // youtube: {
-  //   name: "YouTube",
-  //   url: "https://www.youtube.com/channel/UCCIFp-Se_xjfYc94H04oK7Q",
-  //   icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/768px-YouTube_full-color_icon_%282017%29.svg.png",
-  //   followers: "602",
-  // },
   medium: {
     name: "Medium",
     url: "https://medium.com/@liamdev",
     icon: "https://miro.medium.com/max/1400/1*psYl0y9DUzZWtHzFJLIvTw.png",
     followers: "23",
   },
-   twitter: {
+  twitter: {
     name: "Twitter",
     url: "https://twitter.com/liamdev5",
     icon: "https://seeklogo.com/images/T/twitter-icon-circle-blue-logo-94339974C6-seeklogo.com.png",
@@ -52,10 +46,9 @@ const Socials = () => {
       .then(res => res.json())
       .then(data => {
         setGitFollowers(data.followers)
-      }
-      )
+      })
   }, [])
-  
+
   return (
     <Box
       sx={{
@@ -111,8 +104,7 @@ const Socials = () => {
                   </Typography>
                   <Typography variant="body2" sx={{ color: "text.secondary" }}>
                     {profile.followers}
-                    {profile.name === "GitHub" && gitFollowers}
-                    {" "}
+                    {profile.name === "GitHub" && gitFollowers}{" "}
                     {profile.name === "YouTube" ? "subscribers" : "followers"}
                   </Typography>
                 </Box>

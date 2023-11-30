@@ -289,7 +289,8 @@ const AboutPage = ({ data, location }) => {
                       <b>Jira</b> Management and <b>Gitlab</b>, and{" "}
                       <b>Github</b>. Collaborating with the <b>DevOps</b> team
                       to follow <b>CI/CD pipeline</b> for deployment on testing
-                      enviroment.
+                      enviroment. Experience with <b>Docker</b> and{" "}
+                      <b>AWS Cloud</b>.
                     </Typography>
                   </Box>
                 </Box>

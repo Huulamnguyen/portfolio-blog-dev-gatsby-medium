@@ -1,0 +1,42 @@
+---
+title: Linked Lists vs. Arrays
+description: "Let's put the two data structures against each other to find out which is more efficient."
+date: "2023-11-29T02:28:35.663Z"
+category: "DSA"
+tags: ["Java", "DSA"]
+featuredImage: "../../../src/images/dsa-array-vs-linked-list.png"
+pinned: true
+---
+
+# Linked List vs. Arrays
+
+## Memory Allocation
+
+- Arrays: takes all space even if it doesn't contain any element yet
+- Linked List: only takes the portion of the space as it uses
+
+## Insertion and Deletion
+
+- Linked List: constant time O(1) for deleting at head.
+- Array: O(n) time because you have to traverse and shift the array elements left or right.
+
+## Search:
+
+- Array: takes constant time O(1) for searching/access the index
+- Linked List: O(n) because you have to traverse the list from start to end to search for the element
+
+## Summary the performace between linked lists and arrays
+
+---
+
+| Operation        | Linked List | Array |
+| ---------------- | ----------- | ----- |
+| Access           | O(n)        | O(1)  |
+| Insert (at head) | O(1)        | O(n)  |
+| Delete (at head) | O(1)        | O(n)  |
+| Insert (at tail) | O(n)        | O(n)  |
+| Delete (at tail) | O(n)        | O(n)  |
+
+---
+
+Thank you for reading! Happy coding!

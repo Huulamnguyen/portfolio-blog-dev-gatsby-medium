@@ -18,8 +18,8 @@ import MuiLink from "@mui/material/Link"
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined"
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined"
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz"
-import StarBorderIcon from '@mui/icons-material/StarBorder';
-import ForkRightIcon from '@mui/icons-material/ForkRight';
+import StarBorderIcon from "@mui/icons-material/StarBorder"
+import ForkRightIcon from "@mui/icons-material/ForkRight"
 
 import {
   createTheme,
@@ -64,12 +64,12 @@ const Layout = ({
             ? {
                 // palette values for light mode
                 primary: {
-                  main: "#6200EE",
-                  light: "#6200EE10",
+                  main: "#ff964f",
+                  light: "#fed0b1",
                 },
                 text: {
                   primary: "#1d1d1f",
-              postBody: "#1d1d1f",
+                  postBody: "#1d1d1f",
                   disabled: "rgba(0, 0, 0, 0.48)",
                 },
                 background: {
@@ -102,7 +102,7 @@ const Layout = ({
   )
 
   theme = responsiveFontSizes(theme)
-  
+
   // get stars and forks from https://api.github.com/repos/BrianRuizy/gatsby-medium-blog
   const [githubStars, setGithubStars] = React.useState(0)
   const [githubForks, setGithubForks] = React.useState(0)
@@ -112,10 +112,8 @@ const Layout = ({
       .then(data => {
         setGithubStars(data.stargazers_count)
         setGithubForks(data.forks_count)
-      }
-      )
+      })
   }, [])
-
 
   return (
     <>
@@ -225,49 +223,6 @@ const Layout = ({
                         },
                       }}
                     >
-                      <Box>
-                        <Box
-                          sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "space-between",
-                            mb: 1,
-                          }}
-                        >
-                          <Typography
-                            variant="h6"
-                            sx={{
-                              color: "text.primary",
-                              letterSpacing: 0,
-                              fontWeight: "500",
-                              lineHeight: "20px",
-                            }}
-                          >
-                            More stories from me
-                          </Typography>
-                          <Button
-                            variant="outlined"
-                            color="primary"
-                            size="small"
-                            sx={{
-                              borderRadius: "2rem",
-                              textTransform: "none",
-                              fontWeight: 400,
-                            }}
-                          >
-                            Get Newsletter
-                          </Button>
-                        </Box>
-                        <Typography
-                          variant="body2"
-                          sx={{ maxWidth: "330px", color: "text.disabled" }}
-                        >
-                          Hey, enjoying the content? Subscribe to my newsletter
-                          to stay up to date on new posts and more. P.S. No
-                          spam, unsubscribe any time.
-                        </Typography>
-                      </Box>
-                      {extraFooterContent}
                       <Divider sx={{ my: "2rem" }} />
                       <Box
                         sx={{
@@ -310,16 +265,8 @@ const Layout = ({
                               },
                             }}
                           >
-                            {" "} Built by Lam Nguyen, thanks and inspired by {" "}
-                            <MuiLink
-                              component={Link}
-                              underline="none"
-                              sx={{ color: "text.disabled" }}
-                              to="https://www.b-r.io/"
-                              target="_blank"
-                            >
-                              Brian Ruizy
-                            </MuiLink>
+                            {" "}
+                            Built by Lam Nguyen
                           </Box>
                         </Typography>
                       </Box>
