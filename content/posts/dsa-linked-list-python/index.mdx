@@ -1,0 +1,177 @@
+---
+title: Singly Linked List with Python
+description: "Implement Singly Linked List with Python"
+date: "2023-12-24T03:11:30.071Z"
+category: "DSA"
+tags: ["Python", "DSA", "Singly Linked List"]
+featuredImage: "../../../src/images/Linked-List-Data-Structure.png"
+pinned: false
+---
+
+# What is Singly Linked List?
+
+- A **singly linked** list is a linear data structure in which the elements are not stored in contiguous memory
+  locations and each element is connected only to its next element using a pointer.
+
+# Singly Linked List Implementation
+
+## Constructor
+
+1. Create a **Node** class with the following features
+
+   a. A constructor that takes a **value** as an argument and initializes the value attribute of the node.
+
+   b. A **next** attribute, initialized to **None**, which will store a reference to the next node in the list.
+
+2. Create a **LinkedList** class with the following features:
+
+   a. A constructor that takes a value as an argument, creates a new **Node** with that value, and initializes the **head** and **tail** attributes of the linked list to point to the new node.
+
+   b. A **length** attribute, initialized to 1, which represents the current number of nodes in the list.
+
+```python
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next  = None
+
+
+class LinkedList:
+    def __init__(self, value):
+        new_node = Node(value)
+        self.head = new_node
+        self.tail = new_node
+        self.length = 1
+
+    def print_list(self):
+        temp = self.head
+        while temp is not None:
+            print(temp)
+            temp = temp.next
+
+    def make_empty(self):
+        self.head = None
+        self.tail = None
+        self.length = 0
+```
+
+## Append
+
+- Implement the **append** method for the LinkedList class.
+  The **append** method should add a new node with a given value to the end of the linked list, updating the tail attribute and the length attribute accordingly.
+
+```python
+class Node
+  ### pre-written code ###
+  ### ... ###
+
+class LinkedList:
+  ### pre-written code ###
+  ### ... ###
+
+  def append(self, value):
+    # Create a new node with the given value
+    new_node = Node(value)
+
+    # Check to see if the linked list is empty
+    if self.head is None:
+        # Point both head and tail at the new node
+        self.head = new_node
+        self.tail = new_node
+    else:
+        # Point the next pointer of the last node at the new node
+        self.tail.next = new_node
+        # Point tail at the new node
+        self.tail = new_node
+
+    # Increment the length of the linked list
+    self.length += 1
+```
+
+## Pop
+
+- The **pop** method should remove the last node (tail) from the linked list and return the removed node. If the list is empty, the method should return None.
+
+- After the last node is removed, the second-to-last node should become the new tail of the list.
+
+```python
+class Node
+  ### pre-written code ###
+  ### ... ###
+
+class LinkedList:
+  ### pre-written code ###
+  ### ... ###
+
+  def append(self, value):
+  ### pre-written code ###
+  ### ... ###
+
+  def pop(self):
+    # Check if the list is empty
+    if self.length == 0:
+        return None
+    # Initialize temp and pre to the head
+    temp = self.head
+    pre = self.head
+    # Iterate until the last node
+    while(temp.next):
+        pre = temp
+        temp = temp.next
+    # Set the new tail to the previous node
+    self.tail = pre
+    # Remove link to the removed node
+    self.tail.next = None
+    # Decrement list length by 1
+    self.length -= 1
+    # Check if the list is now empty
+    if self.length == 0:
+        # Set head and tail to None
+        self.head = None
+        self.tail = None
+    # Return the removed node
+    return temp
+```
+
+## Prepend
+
+- The **prepend** method should add a new node with a given value to the beginning of the linked list, updating the head attribute and the length attribute accordingly.
+
+```python
+class Node
+  ### pre-written code ###
+  ### ... ###
+
+class LinkedList:
+  ### pre-written code ###
+  ### ... ###
+
+  def append(self, value):
+  ### pre-written code ###
+  ### ... ###
+
+  def pop(self):
+  ### pre-written code ###
+  ### ... ###
+
+  def prepend(self, value):
+    # Create a new Node with the given value
+    new_node = Node(value)
+
+    # Check if the linked list is empty
+    if self.length == 0:
+      # Set the head and tail attributes to the new node
+      self.head = new_node
+      self.tail = new_node
+    else:
+      # Set the next attribute of the new node to the current head
+      new_node.next = self.head
+      # Update the head attribute to the new node
+      self.head = new_node
+
+    # Increment the length attribute of the LinkedList
+    self.length += 1
+
+    # Return True to indicate a successful operation
+    return True
+```
