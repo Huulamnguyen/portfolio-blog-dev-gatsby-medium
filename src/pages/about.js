@@ -36,6 +36,7 @@ import { FaExclamationCircle } from "react-icons/fa"
 import { FaGitSquare } from "react-icons/fa"
 import { FaTools } from "react-icons/fa"
 import { FaRegHandPointRight } from "react-icons/fa"
+import { FaPython } from "react-icons/fa"
 
 const AboutPage = ({ data, location }) => {
   return (
@@ -215,7 +216,8 @@ const AboutPage = ({ data, location }) => {
                         variant="body2"
                         sx={{ color: "text.disabled" }}
                       >
-                        Full Stack developer located in Long Island, New York
+                        Machine Learning Researcher located in Long Island, New
+                        York
                       </Typography>
                     </div>
                   </Box>
@@ -223,10 +225,29 @@ const AboutPage = ({ data, location }) => {
                     variant="body2"
                     sx={{ color: "text.primary", fontStyle: "italic" }}
                   >
-                    Experience as <b>MERN Full Stack Developer</b> working on
-                    multiple projects and expertise in the design, installation,
-                    testing, and maintenance of software systems.
+                    Experience as <b>Machine Learning Researcher</b> and
+                    <b>Full Stack Developer</b> working on multiple projects and
+                    expertise in the design, installation, testing, and
+                    maintenance of software systems.
                   </Typography>
+                  <Box display={"flex"} gap={2} alignItems={"center"}>
+                    <FaPython size={75} />
+                    <Typography
+                      variant="body2"
+                      sx={{ color: "text.primary", fontStyle: "italic" }}
+                    >
+                      <b>Machine Learning: </b> Wide-range understanding of{" "}
+                      <b>Machine Learning technologies</b>, such as{" "}
+                      <b>Deep Learning</b>, <b>Neural Network</b>. My research
+                      focuses on continuous user authentication through
+                      behavioral biometrics, leveraging sophisticated algorithms
+                      such as <b>Manhattan Scaled Distance</b>,{" "}
+                      <b>Support Vector Machines (SVM)</b>, <b>Random Forest</b>
+                      ,<b>K-Nearest Neighbors (KNN)</b>, and{" "}
+                      <b>Gaussian Mixture Models (GMM)</b>, Convolutional Neural
+                      Networks (CNN) and Recurrent Neural Networks (RNN)
+                    </Typography>
+                  </Box>
                   <Box display={"flex"} gap={2} alignItems={"center"}>
                     <FaCode size={75} />
                     <Typography
@@ -589,7 +610,9 @@ const AboutPage = ({ data, location }) => {
                       >
                         To view more information about my employment, education,
                         skills and download my resume, please visit{" "}
-                        <a href="https://resume.io/r/gNzy8XZVB">Resume</a>
+                        <a href="https://docs.google.com/document/d/1-JLziUE-TpLsI4EVBPwiEOlSy7nBNDapYvfqL0kYkng/edit?usp=sharing">
+                          Resume
+                        </a>
                       </Typography>
                     </Alert>
                   </div>
