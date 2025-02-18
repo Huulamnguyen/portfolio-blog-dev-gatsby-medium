@@ -371,7 +371,7 @@ const AboutPage = ({ data, location }) => {
                       Software Engineer at Silicon Valley Bank
                     </Typography>
                     <Typography variant="body2" sx={{ color: "text.disabled" }}>
-                      SEPTEMPER 2022 - PRESENT
+                      SEPTEMPER 2022 - MAY 2023
                     </Typography>
                     <Alert
                       mt={2}
