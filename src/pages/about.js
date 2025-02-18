@@ -231,7 +231,7 @@ const AboutPage = ({ data, location }) => {
                     maintenance of software systems.
                   </Typography>
                   <Box display={"flex"} gap={2} alignItems={"center"}>
-                    <FaPython size={75} />
+                    <FaPython size={100} />
                     <Typography
                       variant="body2"
                       sx={{ color: "text.primary", fontStyle: "italic" }}
