@@ -125,7 +125,7 @@ const Index = ({ data, location }) => {
                 "&.Mui-selected": { color: "text.primary" },
               }}
             />
-            
+
             <Tab
               label="About"
               component="a"
@@ -150,7 +150,7 @@ const Index = ({ data, location }) => {
             />
           </Tabs>
         </Box>
-        
+
         <Tags />
         {/* all posts panel  */}
         <TabPanel value={value} index={0} key={"all"}>
@@ -188,7 +188,7 @@ const Index = ({ data, location }) => {
                     }}
                   >
                     <Post data={post} />
-                  <Divider
+                    <Divider
                       sx={{
                         pt: 4,
                         "@media (max-width: 600px)": { pt: "1.5rem" },

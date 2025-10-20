@@ -17,7 +17,7 @@ import { HiLink } from "react-icons/hi"
 import { FaInstagram } from "react-icons/fa"
 import { FaGithub } from "react-icons/fa"
 import { FaLinkedin } from "react-icons/fa"
-import { FaTwitter } from "react-icons/fa"
+import { FaKaggle } from "react-icons/fa"
 import { FaMedium } from "react-icons/fa"
 import { FaRegIdCard } from "react-icons/fa"
 
@@ -34,11 +34,11 @@ const profiles = {
     url: "https://medium.com/@liamdev",
     icon: <FaMedium />,
   },
-  twitter: {
-    name: "Twitter",
-    desc: "@liamdev5",
-    url: "https://twitter.com/liamdev5",
-    icon: <FaTwitter />,
+  kaggle: {
+    name: "Kaggle",
+    desc: "My data science projects",
+    url: "https://www.kaggle.com/lamnguyen95",
+    icon: <FaKaggle />,
   },
   linkedin: {
     name: "LinkedIn",

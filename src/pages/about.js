@@ -216,8 +216,7 @@ const AboutPage = ({ data, location }) => {
                         variant="body2"
                         sx={{ color: "text.disabled" }}
                       >
-                        Machine Learning Researcher located in Long Island, New
-                        York
+                        Machine Learning Researcher located in New York
                       </Typography>
                     </div>
                   </Box>
@@ -225,8 +224,8 @@ const AboutPage = ({ data, location }) => {
                     variant="body2"
                     sx={{ color: "text.primary", fontStyle: "italic" }}
                   >
-                    Experience as <b>Machine Learning Researcher</b> and
-                    <b>Full Stack Developer</b> working on multiple projects and
+                    Experience as <b>Machine Learning Researcher</b> and{" "}
+                    <b>Software Engineer</b> working on multiple projects and
                     expertise in the design, installation, testing, and
                     maintenance of software systems.
                   </Typography>
@@ -236,16 +235,12 @@ const AboutPage = ({ data, location }) => {
                       variant="body2"
                       sx={{ color: "text.primary", fontStyle: "italic" }}
                     >
-                      <b>Machine Learning: </b> Wide-range understanding of{" "}
-                      <b>Machine Learning technologies</b>, such as{" "}
-                      <b>Deep Learning</b>, <b>Neural Network</b>. My research
-                      focuses on continuous user authentication through
-                      behavioral biometrics, leveraging sophisticated algorithms
-                      such as <b>Manhattan Scaled Distance</b>,{" "}
-                      <b>Support Vector Machines (SVM)</b>, <b>Random Forest</b>
-                      ,<b>K-Nearest Neighbors (KNN)</b>, and{" "}
-                      <b>Gaussian Mixture Models (GMM)</b>, Convolutional Neural
-                      Networks (CNN) and Recurrent Neural Networks (RNN)
+                      <b>Machine Learning:</b> Strong grasp of ML technologies
+                      including <b>Deep Learning</b> and <b>Neural Networks</b>.
+                      My research centers on continuous user authentication
+                      using behavioral biometrics with models like <b>SVM</b>,{" "}
+                      <b>Random Forest</b>, <b>KNN</b>, <b>GMM</b>, <b>CNN</b>,{" "}
+                      <b>RNN</b>, and <b>Manhattan Scaled Distance</b>.
                     </Typography>
                   </Box>
                   <Box display={"flex"} gap={2} alignItems={"center"}>
@@ -254,12 +249,11 @@ const AboutPage = ({ data, location }) => {
                       variant="body2"
                       sx={{ color: "text.primary", fontStyle: "italic" }}
                     >
-                      <b>Front-End: </b> Solid understanding of{" "}
-                      <b>JavaScript</b>, <b>Typescript</b>, <b>Python</b>,{" "}
-                      <b>HTML/CSS</b>. Framework <b>React</b>, <b>Redux</b>,{" "}
-                      <b>MobX</b>, and many CSS frameworks such as{" "}
-                      <b>Material UI</b>, <b>Bootstrap</b>, and{" "}
-                      <b>Tailwind CSS</b> to handle many types of UI front-end.
+                      <b>Front-End:</b> Proficient in <b>JavaScript</b>,{" "}
+                      <b>TypeScript</b>, <b>Python</b>, and <b>HTML/CSS</b>.
+                      Experienced with <b>React</b>, <b>Redux</b>, <b>MobX</b>,
+                      and UI libraries like <b>Material UI</b>, <b>Bootstrap</b>
+                      , and <b>Tailwind CSS</b>.
                     </Typography>
                   </Box>
                   <Box display={"flex"} gap={2} alignItems={"center"}>
@@ -268,12 +262,12 @@ const AboutPage = ({ data, location }) => {
                       variant="body2"
                       sx={{ color: "text.primary", fontStyle: "italic" }}
                     >
-                      <b>Back-End</b>: Architecture design and route control
-                      with multiple back-end technologies such as <b>NodeJS</b>,{" "}
-                      <b>ExpressJS</b> and <b>Rails</b> with experience in ORM
-                      such as <b>Mongoose</b>, and <b>Active Record</b>. Using{" "}
-                      <b>MongoDB</b>, and <b>PostgreSQL</b> to handle both SQL
-                      and no-SQL databases.
+                      <b>Back-End:</b> Skilled in <b>NodeJS</b>,{" "}
+                      <b>ExpressJS</b>, and <b>Rails</b> for backend
+                      architecture and routing. Experienced with ORMs like{" "}
+                      <b>Mongoose</b> and <b>Active Record</b>, using{" "}
+                      <b>MongoDB</b> and <b>PostgreSQL</b> for database
+                      management.
                     </Typography>
                   </Box>
                   <Box display={"flex"} gap={2} alignItems={"center"}>
@@ -306,12 +300,10 @@ const AboutPage = ({ data, location }) => {
                       variant="body2"
                       sx={{ color: "text.primary", fontStyle: "italic" }}
                     >
-                      <b>Enviroment & Tools:</b> <b>Agile</b> method with{" "}
-                      <b>Jira</b> Management and <b>Gitlab</b>, and{" "}
-                      <b>Github</b>. Collaborating with the <b>DevOps</b> team
-                      to follow <b>CI/CD pipeline</b> for deployment on testing
-                      enviroment. Experience with <b>Docker</b> and{" "}
-                      <b>AWS Cloud</b>.
+                      <b>Environment & Tools:</b> Experienced with <b>Agile</b>,{" "}
+                      <b>Jira</b>, <b>GitLab</b>, and <b>GitHub</b>. Collaborate
+                      with <b>DevOps</b> teams on <b>CI/CD pipelines</b>, with
+                      hands-on experience in <b>Docker</b> and <b>AWS Cloud</b>.
                     </Typography>
                   </Box>
                 </Box>
@@ -368,10 +360,10 @@ const AboutPage = ({ data, location }) => {
                       }}
                     >
                       {" "}
-                      Software Engineer at Silicon Valley Bank
+                      Machine Learning Researcher at NYIT’s LAMP Lab
                     </Typography>
                     <Typography variant="body2" sx={{ color: "text.disabled" }}>
-                      SEPTEMPER 2022 - MAY 2023
+                      JANUARY 2024 - PRESENT
                     </Typography>
                     <Alert
                       mt={2}
@@ -388,17 +380,15 @@ const AboutPage = ({ data, location }) => {
                         }}
                       >
                         <div>
-                          <b>Silicon Valley Bank</b> is on the list of largest
-                          banks in the United State which provides financial
-                          products, services, and strategic advice for
-                          businesses.
+                          <b>NYIT’s LAMP Lab</b>, focusing on continuous
+                          authentication systems and behavioral biometrics under
+                          the mentorship of leading cybersecurity scholars.
                         </div>
                         <div>
-                          As <b>Software Engineer at SVB</b>, I was responsible
-                          for implementing features such as the Payment Center,
-                          Payment Template, and Internal Transfer, building UI,
-                          and maintaining code quality by testing, and reviewing
-                          in the Payment 3 Team of SVB Go application.
+                          My main research project involves developing a
+                          continuous user authentication system using behavioral
+                          biometrics such as keystroke dynamics and mouse
+                          dynamics.
                         </div>
                       </Typography>
                     </Alert>
@@ -411,63 +401,58 @@ const AboutPage = ({ data, location }) => {
                         lineHeight: "2.0",
                       }}
                     >
-                      <FaRegHandPointRight /> Developed multiple functionalities
-                      with Responsive Web Design for the application’s payment
-                      feature and implemented UI components by using the
-                      Material UI framework, React, and Typescripts, such as
-                      flexible grids and layouts, forms, buttons, and tables.
+                      <FaRegHandPointRight /> Designing and implementing
+                      sophisticated authentication systems for mobile devices
+                      and telerobotics, with a focus on machine learning models
+                      such as Support Vector Machines (SVM), Scaled Manhattan
+                      Distance, Random Forest, K-Nearest Neighbors (KNN), and
+                      Gaussian Mixture Models (GMM) to enhance model accuracy
+                      and robustness.
                       <br />
-                      <FaRegHandPointRight /> Coordinated with the Product
-                      Manager and Tech Lead to clarify Acceptance Criteria (AC)
-                      requirements and implement features that followed UX/UI
-                      design on Figma.
+                      <FaRegHandPointRight /> Spearheading experiments to
+                      capture, analyze, and interpret data from accelerometers,
+                      gyroscopes, and 3D motion capture devices, developing
+                      robust methodologies for feature extraction and optimizing
+                      models to identify unique behavioral patterns.
                       <br />
-                      <FaRegHandPointRight /> Used React-hooks (useCallback,
-                      useMemo, useState, useEffect, useHistory, useNavigate,
-                      etc.) to handle the application life cycle processes.
-                      Handled state management with React-MobX by interacting
-                      with existing stores and initializing states for
-                      appropriate components.
+                      <FaRegHandPointRight /> Collaborating closely with an
+                      interdisciplinary team, fostering innovative approaches to
+                      bolster security across digital and mobile platforms.
                       <br />
-                      <FaRegHandPointRight /> Manipulated reusable components
-                      and built new features for appropriate pages such as
-                      Payment Center, Payment Forms, Transfer Form, Template,
-                      etc.
+                      <FaRegHandPointRight /> Specializing in the optimization
+                      of gesture-based authentication, gait recognition, and
+                      other behavioral biometrics, driving developments in
+                      user-specific authentication mechanisms.
                       <br />
-                      <FaRegHandPointRight /> Responsible for debugging,
-                      peer-reviewing, and integrating codes to meet production
-                      specifications.
+                      <FaRegHandPointRight /> Contributing research findings to
+                      top-tier journals and presenting at major conferences,
+                      actively shaping discourse within the academic and
+                      professional communities.
                       <br />
-                      <FaRegHandPointRight /> The project was implemented by
-                      following TDD using the JEST, enzyme for unit testing.
+                      <FaRegHandPointRight /> Engaging with industry leaders to
+                      align academic research with practical cybersecurity
+                      applications, bridging the gap between theoretical
+                      development and industry relevance.
                       <br />
-                      <FaRegHandPointRight /> Coordinated with QA Testers to
-                      ensure the implementing features meets the AC.
+                      <FaRegHandPointRight /> Providing mentorship and support
+                      to emerging researchers, fostering a collaborative
+                      learning environment within the lab and the broader
+                      academic community.
                       <br />
                       <FaRegHandPointRight /> Practiced Integration testing to
                       test different components of the application in
                       combination to assess if they work correctly together,
                       ensuring there are no new bugs generated during
                       development.
-                      <br />
-                      <FaRegHandPointRight /> Worked with Agile Methodology with
-                      Jira, Git to handle version control and tracking units,
-                      and Gitlab as a software development platform to follow
-                      Git Workflow and CI/CD Pipeline.
-                      <br />
-                      <FaRegHandPointRight /> Collaborated with other developers
-                      for code review to maintain test coverage, code quality,
-                      security, re-usability, and scalability.
-                      <br />
-                      <FaRegHandPointRight /> Collaborated with other teams to
-                      maintain or report any testing environment issues, CI/CD
-                      pipeline failures, and any updates from leadership and
-                      cooperate.
-                      <br />
-                      <FaRegHandPointRight /> Environment: ECMAScript 6,
-                      Typescript, Material-UI, React, MobX, Jest, Git, Jira,
-                      GitLab
+                      <FaRegHandPointRight /> Published Paper as Assistant
+                      Researcher: Nicholas Cariello, Robert Eslinger, Rosemary
+                      Gallagher, Isaac Kurtzer, Paolo Gasti, and Kiran S.
+                      Balagani. Posture and Body Movement Effects on Behavioral
+                      Biometrics for Continuous Smartphone Authentication. In
+                      IEEE Transactions on Biometrics, Behavior, and Identity
+                      Science (T-BIOM), vol. 10 pp. 1–1, 2024
                     </Typography>
+
                     <Alert
                       mt={2}
                       variant="outlined"
@@ -484,7 +469,9 @@ const AboutPage = ({ data, location }) => {
                       >
                         To view more information about my employment and
                         download, please visit{" "}
-                        <a href="https://resume.io/r/gNzy8XZVB">Resume</a>
+                        <a href="https://docs.google.com/document/d/1-JLziUE-TpLsI4EVBPwiEOlSy7nBNDapYvfqL0kYkng/edit?usp=sharing">
+                          Resume
+                        </a>
                       </Typography>
                     </Alert>
                   </div>
@@ -530,6 +517,36 @@ const AboutPage = ({ data, location }) => {
               <Grid container>
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                   <div>
+                    {/* NYIT */}
+                    <Typography
+                      variant="h3"
+                      sx={{
+                        fontSize: "16px !important",
+                        letterSpacing: 0,
+                        fontWeight: "500",
+                        lineHeight: "20px",
+                        color: "text.primary",
+                      }}
+                    >
+                      {" "}
+                      PhD in Computer Science at NYIT
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: "text.disabled" }}>
+                      JANUARY 2024 - PRESENT New York City, New York
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        letterSpacing: 0,
+                        color: "text.primary",
+                        margin: "10px",
+                        lineHeight: "2.0",
+                      }}
+                    >
+                      <FaRegHandPointRight /> Honors: summa cum laude (GPA:
+                      3.70)
+                    </Typography>
+
                     {/* Adelphi */}
                     <Typography
                       variant="h3"

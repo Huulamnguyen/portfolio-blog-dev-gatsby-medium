@@ -31,10 +31,10 @@ const profiles = {
     icon: "https://miro.medium.com/max/1400/1*psYl0y9DUzZWtHzFJLIvTw.png",
     followers: "23",
   },
-  twitter: {
-    name: "Twitter",
-    url: "https://twitter.com/liamdev5",
-    icon: "https://seeklogo.com/images/T/twitter-icon-circle-blue-logo-94339974C6-seeklogo.com.png",
+  kaggle: {
+    name: "Kaggle",
+    url: "https://www.kaggle.com/lamnguyen95",
+    icon: "https://www.kaggle.com/static/images/site-logo.svg",
     followers: "49",
   },
 }
