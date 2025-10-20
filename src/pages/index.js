@@ -116,7 +116,7 @@ const Index = ({ data, location }) => {
             }}
           >
             <Tab
-              label="Blog"
+              label="Project"
               {...a11yProps(0)}
               sx={{
                 textTransform: "capitalize",

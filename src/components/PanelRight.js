@@ -162,14 +162,14 @@ export default function PanelRight({ extraDrawerContent }) {
                       Lam Nguyen
                     </Typography>
                     <Typography variant="body2" sx={{ color: "text.disabled" }}>
-                      Software Engineer
+                      Machine Learning Engineer
                     </Typography>
                   </div>
                 </Box>
                 <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                  I'm a full-stack Software Engineer based out of Long Island,
-                  NY. Here you'll find my personal blog posts and case studies
-                  on all things tech.
+                  I'm a Machine Learning Engineer based in New York City, NY.
+                  Here you'll find my personal blog posts and case studies on
+                  all things tech.
                 </Typography>
               </Box>
             )}

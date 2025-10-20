@@ -229,7 +229,7 @@ const AboutPage = ({ data, location }) => {
                     expertise in the design, installation, testing, and
                     maintenance of software systems.
                   </Typography>
-                  <Box display={"flex"} gap={2} alignItems={"center"}>
+                  <Box display={"flex"} gap={1} alignItems={"center"}>
                     <FaPython size={125} />
                     <Typography
                       variant="body2"
@@ -243,7 +243,7 @@ const AboutPage = ({ data, location }) => {
                       <b>RNN</b>, and <b>Manhattan Scaled Distance</b>.
                     </Typography>
                   </Box>
-                  <Box display={"flex"} gap={2} alignItems={"center"}>
+                  <Box display={"flex"} gap={1} alignItems={"center"}>
                     <FaCode size={75} />
                     <Typography
                       variant="body2"
@@ -256,7 +256,7 @@ const AboutPage = ({ data, location }) => {
                       , and <b>Tailwind CSS</b>.
                     </Typography>
                   </Box>
-                  <Box display={"flex"} gap={2} alignItems={"center"}>
+                  <Box display={"flex"} gap={1} alignItems={"center"}>
                     <FaDatabase size={75} />
                     <Typography
                       variant="body2"
@@ -270,7 +270,7 @@ const AboutPage = ({ data, location }) => {
                       management.
                     </Typography>
                   </Box>
-                  <Box display={"flex"} gap={2} alignItems={"center"}>
+                  <Box display={"flex"} gap={1} alignItems={"center"}>
                     <FaExclamationCircle size={50} />
                     <Typography
                       variant="body2"
@@ -281,7 +281,7 @@ const AboutPage = ({ data, location }) => {
                       <b>Jest</b>, and <b>React Testing Library</b> in TDD.
                     </Typography>
                   </Box>
-                  <Box display={"flex"} gap={2} alignItems={"center"}>
+                  <Box display={"flex"} gap={1} alignItems={"center"}>
                     <FaGitSquare size={75} />
                     <Typography
                       variant="body2"
@@ -294,7 +294,7 @@ const AboutPage = ({ data, location }) => {
                       without merge conflicts.
                     </Typography>
                   </Box>
-                  <Box display={"flex"} gap={2} alignItems={"center"}>
+                  <Box display={"flex"} gap={1} alignItems={"center"}>
                     <FaTools size={75} />
                     <Typography
                       variant="body2"
