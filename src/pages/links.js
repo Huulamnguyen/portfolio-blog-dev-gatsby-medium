@@ -119,7 +119,7 @@ const NotFoundPage = ({ data, location }) => {
             }}
           >
             <Tab
-              label="Blog"
+              label="Project"
               active
               component="a"
               href="/"

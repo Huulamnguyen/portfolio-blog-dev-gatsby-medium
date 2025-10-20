@@ -96,7 +96,7 @@ const AboutPage = ({ data, location }) => {
             }}
           >
             <Tab
-              label="Blog"
+              label="Project"
               active
               component="a"
               href="/"
@@ -431,13 +431,13 @@ const AboutPage = ({ data, location }) => {
                       combination to assess if they work correctly together,
                       ensuring there are no new bugs generated during
                       development.
+                      <br />
                       <FaRegHandPointRight /> Published Paper as Assistant
-                      Researcher: Nicholas Cariello, Robert Eslinger, Rosemary
-                      Gallagher, Isaac Kurtzer, Paolo Gasti, and Kiran S.
-                      Balagani. Posture and Body Movement Effects on Behavioral
-                      Biometrics for Continuous Smartphone Authentication. In
-                      IEEE Transactions on Biometrics, Behavior, and Identity
-                      Science (T-BIOM), vol. 10 pp. 1–1, 2024
+                      Researcher: Posture and Body Movement Effects on
+                      Behavioral Biometrics for Continuous Smartphone
+                      Authentication. In IEEE Transactions on Biometrics,
+                      Behavior, and Identity Science (T-BIOM), vol. 10 pp. 1–1,
+                      2024
                     </Typography>
 
                     <Alert

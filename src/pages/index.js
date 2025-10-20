@@ -76,7 +76,7 @@ const Index = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="Portfolio" />
+      <Seo title="Lam Nguyen Portfolio" />
       <Container
         maxWidth="string"
         disableGutters
