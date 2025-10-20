@@ -55,7 +55,7 @@ const profiles = {
   Resume: {
     name: "Resume",
     desc: "Skills, Education, Experience",
-    url: "https://docs.google.com/document/d/1h-buG5emsA-NMHMAhUKjSmRed8qICVgVesWikRyMFzQ/edit?usp=sharing",
+    url: "https://docs.google.com/document/d/1-JLziUE-TpLsI4EVBPwiEOlSy7nBNDapYvfqL0kYkng/edit?usp=sharing",
     icon: <FaRegIdCard />,
   },
 }
