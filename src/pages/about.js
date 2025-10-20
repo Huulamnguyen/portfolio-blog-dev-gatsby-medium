@@ -132,19 +132,6 @@ const AboutPage = ({ data, location }) => {
             />
           </Tabs>
         </Box>
-        <Alert
-          severity="info"
-          sx={{
-            backgroundColor: "primary.light",
-            color: "primary.dark",
-            "& .MuiSvgIcon-root": { color: "primary.dark" },
-          }}
-          icon={"🧐"}
-        >
-          {" "}
-          Check out my resume for more information about skills, experience,
-          education and more.
-        </Alert>
 
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           {/* Profile */}
