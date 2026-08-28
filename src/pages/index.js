@@ -11,6 +11,7 @@ import StoreShowcase from "../components/home/StoreShowcase"
 import ThemeCompare from "../components/home/ThemeCompare"
 import Results from "../components/home/Results"
 import { featured } from "../data/projects"
+import { profile } from "../data/resume"
 import TechChips from "../components/TechChips"
 
 import Box from "@mui/material/Box"
@@ -39,7 +40,7 @@ const Eyebrow = ({ children }) => (
 
 const HomePage = ({ location }) => (
   <Layout location={location} title="Lam Nguyen">
-    <Seo title="Lam Nguyen — Co-founder & Software Engineer" />
+    <Seo title={`Lam Nguyen — ${profile.role}`} />
     <NoScriptReveal />
     <Container
       maxWidth="string"
