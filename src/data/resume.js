@@ -6,6 +6,13 @@ export const profile = {
   location: `New York`,
   avatar: `https://liamdev.vercel.app/avatar.png`,
   summary: `Co-founder of ANS, where I rebuilt the storefront from scratch on Hydrogen and the Shopify API instead of a pre-built theme, and lead its web and mobile development. Also a machine learning researcher at NYIT's LAMP Lab working on continuous authentication.`,
+  email: `liamnguyen.swe@gmail.com`,
+  // Shown in the sidebar so the site's identity can't drift from the résumé.
+  now: `Building ANS, a nail and beauty supply store, on Shopify Hydrogen.`,
+  site: {
+    label: `angelinanailsupply.com`,
+    url: `https://www.angelinanailsupply.com`,
+  },
   resumeUrl: `https://docs.google.com/document/d/1-JLziUE-TpLsI4EVBPwiEOlSy7nBNDapYvfqL0kYkng/edit?usp=sharing`,
 }
 

@@ -124,7 +124,7 @@ const Layout = ({
           <Box sx={{ display: "block", margin: "auto", maxWidth: "1504px" }}>
             <Box sx={{ display: "flex" }} data-is-root-path={isRootPath}>
               <PanelLeft
-                isRootPath={isRootPath}
+                location={location}
                 ThemeButton={<ThemeIconButton darkModeHook={darkModeHook} />}
               />
               <Box sx={{ display: "block", minWidth: 0, flex: "1 1 auto" }}>
