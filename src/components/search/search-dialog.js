@@ -1,28 +1,30 @@
-import { createRef, default as React, useState, useMemo } from "react"
-import algoliasearch from "algoliasearch/lite"
-import { InstantSearch } from "react-instantsearch-dom"
+import { createRef, default as React, useEffect, useMemo, useState } from "react"
 
 import SearchBox from "./search-box"
 import SearchResult from "./search-result"
 import useClickOutside from "./use-click-outside"
+import useSearchData from "./use-search-data"
+import { parseQuery, searchPosts, searchTags } from "./match"
 
 import Box from "@mui/material/Box"
 import Dialog from "@mui/material/Dialog"
 
 export default function SearchDialog({ open, handleClose }) {
-  const searchIndices = [{ name: `Stories`, title: `Stories` }, { name: `Tags`, title: `Tags` }]
   const rootRef = createRef()
-  const [query, setQuery] = useState()
+  const [query, setQuery] = useState("")
   const [hasFocus, setFocus] = useState(false)
-  const searchClient = useMemo(
-    () =>
-      algoliasearch(
-        process.env.GATSBY_ALGOLIA_APP_ID,
-        process.env.GATSBY_ALGOLIA_SEARCH_KEY
-      ),
-    []
-  )
+  const { posts, tags } = useSearchData()
+
   useClickOutside(rootRef, () => setFocus(false))
+
+  // Don't show the previous search's results the next time the dialog opens.
+  useEffect(() => {
+    if (!open) setQuery("")
+  }, [open])
+
+  const terms = useMemo(() => parseQuery(query), [query])
+  const postHits = useMemo(() => searchPosts(posts, query), [posts, query])
+  const tagHits = useMemo(() => searchTags(tags, query), [tags, query])
 
   return (
     <Dialog
@@ -49,21 +51,22 @@ export default function SearchDialog({ open, handleClose }) {
       }}
     >
       <Box ref={rootRef}>
-        <InstantSearch
-          searchClient={searchClient}
-          indexName={searchIndices[0].name}
-          onSearchStateChange={({ query }) => setQuery(query)}
-        >
-          <SearchBox
-            onFocus={() => setFocus(true)}
-            hasFocus={hasFocus}
-            handleClose={handleClose}
-          />
+        <SearchBox
+          value={query}
+          onChange={setQuery}
+          onFocus={() => setFocus(true)}
+          hasFocus={hasFocus}
+          handleClose={handleClose}
+        />
 
-          {query && query.length > 0 && (
-            <SearchResult indices={searchIndices} />
-          )}
-        </InstantSearch>
+        {terms.length > 0 && (
+          <SearchResult
+            posts={postHits}
+            tags={tagHits}
+            terms={terms}
+            onNavigate={handleClose}
+          />
+        )}
       </Box>
     </Dialog>
   )

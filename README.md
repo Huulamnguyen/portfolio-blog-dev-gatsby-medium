@@ -23,7 +23,7 @@
 ## Features
 
 - 📲 PWA ready, installable on Android and iOS
-- 🔎 Algolia Search, search by all attributes
+- 🔎 Built-in search over post titles, descriptions, and tags — no external service
 - 📧 Getform.io contact form with easy setup.
 - 📝 Blog ready, easily add your blog posts with MDX
 - 🌗 Togglable dark mode
@@ -33,22 +33,20 @@
 
 Before developing and working with the codebase on your IDE of choice, there are some services to set up to get the project running successfully.
 
-### 1. Algolia Search
+### 0. Node version
 
-Algolia Search environment variables are required in the project's `.env` file.
+This site runs on Gatsby 4, which supports **Node 14–18**. On Node 19+ `gatsby develop`
+crashes during `source and transform nodes` with
+`RangeError: "length" is outside of buffer bounds` (the bundled `msgpackr@1.6.1` uses
+`Buffer#utf8Write` in a way newer Node rejects).
 
-You will need to provide some information that identifies your account to the Algolia plugin and authorizes it to write data to it. If you don’t already have an Algolia account, create one [here](https://www.algolia.com/users/sign_up). Then, go to the **API Keys** section of your Algolia profile.
+A `.nvmrc` is included, so run:
 
-There is already a file named `.env.example` in the project's root directory. You can rename this to `.env` and fill in the values or you can copy the contents of the file and paste them into your `.env` file as shown below.
-
-```.env
-GATSBY_ALGOLIA_APP_ID=<App ID>
-GATSBY_ALGOLIA_SEARCH_KEY=<Search-Only API Key>
-ALGOLIA_ADMIN_KEY=<Admin API Key>
-
+```sh
+nvm use
 ```
 
-### 2. GetForm
+### 1. GetForm
 
 contact form is super easy to set up with getform.io.
 Simply add your API / endpoint URL to the action attribute of your form and you're good to go. See https://app.getform.io/forms for documentation. The location for this component is `src/components/ContactDrawer.js`.

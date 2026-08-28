@@ -17,53 +17,57 @@ import Typography from "@mui/material/Typography"
 import ArticleIcon from "@mui/icons-material/Article"
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 
-import {
-  // connectStateResults,
-  Highlight,
-  Hits,
-  Index,
-  Snippet,
-} from "react-instantsearch-dom"
+import { splitByTerms } from "./match"
 
-// const HitCount = connectStateResults(({ searchResults }) => {
-//   const hitCount = searchResults && searchResults.nbHits
+// Wraps the parts of `text` that matched the query in <mark>, which the
+// surrounding sx rules recolour to primary.main.
+const Mark = ({ text, terms }) => (
+  <>
+    {splitByTerms(text, terms).map((segment, index) =>
+      segment.match ? (
+        <mark key={index}>{segment.text}</mark>
+      ) : (
+        <React.Fragment key={index}>{segment.text}</React.Fragment>
+      )
+    )}
+  </>
+)
 
-//   return hitCount > 0 ? (
-//     <span>
-//       {hitCount} result{hitCount !== 1 ? `s` : ``}
-//     </span>
-//   ) : null
-// })
-
-const PageHit = ({ hit }) => (
-  <ListItemButton component={Link} to={hit.slug}>
-    <ListItemIcon
+const HitIcon = ({ children }) => (
+  <ListItemIcon
+    sx={{
+      minWidth: "2.5rem",
+      "@media (max-width: 600px)": { display: "none" },
+    }}
+  >
+    <IconButton
+      disableRipple
+      size="small"
       sx={{
-        minWidth: "2.5rem",
-        "@media (max-width: 600px)": { display: "none" },
+        backgroundColor: "action.selected",
+        color: "text.primary",
       }}
     >
-      <IconButton
-        disableRipple
-        size="small"
-        sx={{
-          backgroundColor: "action.selected",
-          color: "text.primary",
-        }}
-      >
-        <ArticleIcon sx={{ fontSize: "14px" }} />
-      </IconButton>
-    </ListItemIcon>
+      {children}
+    </IconButton>
+  </ListItemIcon>
+)
+
+const PageHit = ({ hit, terms, onNavigate }) => (
+  <ListItemButton component={Link} to={hit.slug} onClick={onNavigate}>
+    <HitIcon>
+      <ArticleIcon sx={{ fontSize: "14px" }} />
+    </HitIcon>
     <ListItemText
       primary={
         <>
-          <Highlight attribute="title" hit={hit} tagName="mark" />
+          <Mark text={hit.title} terms={terms} />
           <Typography sx={{ color: "text.disabled", display: "inline" }}>
-            －<Snippet attribute="date" hit={hit} />
+            －{hit.date}
           </Typography>
         </>
       }
-      secondary={<Snippet attribute="description" hit={hit} tagName="mark" />}
+      secondary={<Mark text={hit.description} terms={terms} />}
       sx={{
         "* > mark": {
           backgroundColor: "unset",
@@ -80,31 +84,21 @@ const PageHit = ({ hit }) => (
   </ListItemButton>
 )
 
-const TagHit = ({ hit }) => (
-  <ListItemButton component={Link} to={`/tag/${kebabCase(hit.fieldValue)}/`}>
-    <ListItemIcon
-      sx={{
-        minWidth: "2.5rem",
-        "@media (max-width: 600px)": { display: "none" },
-      }}
-    >
-      <IconButton
-        disableRipple
-        size="small"
-        sx={{
-          backgroundColor: "action.selected",
-          color: "text.primary",
-        }}
-      >
-        <LocalOfferIcon sx={{ fontSize: "14px" }} />
-      </IconButton>
-    </ListItemIcon>
+const TagHit = ({ hit, terms, onNavigate }) => (
+  <ListItemButton
+    component={Link}
+    to={`/tag/${kebabCase(hit.fieldValue)}/`}
+    onClick={onNavigate}
+  >
+    <HitIcon>
+      <LocalOfferIcon sx={{ fontSize: "14px" }} />
+    </HitIcon>
     <ListItemText
       primary={
         <>
-          <Highlight attribute="fieldValue" hit={hit} tagName="mark" />
+          <Mark text={hit.fieldValue} terms={terms} />
           <Typography sx={{ color: "text.disabled", display: "inline" }}>
-            －<Snippet attribute="totalCount" hit={hit} />
+            －{hit.totalCount}
           </Typography>
         </>
       }
@@ -118,8 +112,8 @@ const TagHit = ({ hit }) => (
   </ListItemButton>
 )
 
-const HitsInIndex = ({ index }) => (
-  <Index indexName={index.name}>
+const HitSection = ({ title, hits, terms, renderHit }) => (
+  <>
     <List
       subheader={
         <ListSubheader
@@ -127,7 +121,7 @@ const HitsInIndex = ({ index }) => (
           id="nested-list-subheader"
           sx={{ background: "none", color: "text.disabled" }}
         >
-          {index.name}
+          {title}
         </ListSubheader>
       }
       sx={{
@@ -138,17 +132,44 @@ const HitsInIndex = ({ index }) => (
         },
       }}
     >
-      <Hits hitComponent={index.name === "Stories" ? PageHit : TagHit} />
+      {hits.map(renderHit)}
     </List>
     <Divider sx={{ mx: 2, ":last-of-type": { display: "none" } }} />
-  </Index>
+  </>
 )
 
-const SearchResult = ({ indices }) => (
+const SearchResult = ({ posts, tags, terms, onNavigate }) => (
   <Box sx={{ borderTop: "1px solid", borderColor: "divider" }}>
-    {indices.map(index => (
-      <HitsInIndex index={index} key={index.name} />
-    ))}
+    {posts.length > 0 && (
+      <HitSection
+        title="Stories"
+        hits={posts}
+        terms={terms}
+        renderHit={hit => (
+          <PageHit key={hit.id} hit={hit} terms={terms} onNavigate={onNavigate} />
+        )}
+      />
+    )}
+    {tags.length > 0 && (
+      <HitSection
+        title="Tags"
+        hits={tags}
+        terms={terms}
+        renderHit={hit => (
+          <TagHit
+            key={hit.fieldValue}
+            hit={hit}
+            terms={terms}
+            onNavigate={onNavigate}
+          />
+        )}
+      />
+    )}
+    {posts.length === 0 && tags.length === 0 && (
+      <Typography sx={{ color: "text.disabled", px: 2, py: 3, fontSize: "14px" }}>
+        No results found.
+      </Typography>
+    )}
   </Box>
 )
 
