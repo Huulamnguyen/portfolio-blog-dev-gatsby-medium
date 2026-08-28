@@ -85,6 +85,23 @@ export const experience = [
       venue: `IEEE Transactions on Biometrics, Behavior, and Identity Science (T-BIOM)`,
       detail: `vol. 10, pp. 1–1, 2024`,
       url: `https://ieeexplore.ieee.org/document/10547465`,
+      tools: [
+        `Python`,
+        `NumPy`,
+        `Pandas`,
+        `Matplotlib`,
+        `scikit-learn`,
+        `Jupyter`,
+      ],
+      models: [
+        `SVM`,
+        `Random Forest`,
+        `KNN`,
+        `GMM`,
+        `CNN`,
+        `RNN`,
+        `Scaled Manhattan Distance`,
+      ],
     },
   },
 ]

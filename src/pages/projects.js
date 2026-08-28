@@ -8,9 +8,10 @@ import PageTabs from "../components/nav/PageTabs"
 import Reveal, { NoScriptReveal } from "../components/about/reveal"
 import { featured } from "../data/projects"
 import { experience } from "../data/resume"
+import TechChips from "../components/TechChips"
+import { isCategoryTag } from "../components/tech-keys"
 
 import Box from "@mui/material/Box"
-import Chip from "@mui/material/Chip"
 import Container from "@mui/material/Container"
 import IconButton from "@mui/material/IconButton"
 import MuiLink from "@mui/material/Link"
@@ -193,21 +194,7 @@ const ProjectsPage = ({ data, location }) => {
                   ))}
                 </Box>
 
-                <Box sx={{ display: `flex`, gap: 0.75, flexWrap: `wrap`, mt: 2 }}>
-                  {featured.stack.map(item => (
-                    <Chip
-                      key={item}
-                      label={item}
-                      size="small"
-                      sx={{
-                        borderRadius: `6px`,
-                        backgroundColor: `action.selected`,
-                        color: `text.primary`,
-                        fontSize: `12px`,
-                      }}
-                    />
-                  ))}
-                </Box>
+                <TechChips items={featured.stack} sx={{ mt: 2 }} />
 
                 <MuiLink
                   href={featured.url}
@@ -293,6 +280,12 @@ const ProjectsPage = ({ data, location }) => {
                         >
                           {post.frontmatter.description}
                         </Typography>
+                        <TechChips
+                          items={(post.frontmatter.tags || []).filter(
+                            tag => !isCategoryTag(tag)
+                          )}
+                          sx={{ mt: 1.5 }}
+                        />
                       </Box>
                     </Link>
                   </Card>
@@ -354,6 +347,33 @@ const ProjectsPage = ({ data, location }) => {
                   >
                     {publication.venue} · {publication.detail}
                   </Typography>
+                  <TechChips items={publication.tools || []} sx={{ mt: 2 }} />
+                  {publication.models?.length > 0 && (
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        mt: 1.5,
+                        color: `text.secondary`,
+                        fontSize: `13px`,
+                        lineHeight: 1.7,
+                      }}
+                    >
+                      <Box
+                        component="span"
+                        sx={{
+                          color: `text.disabled`,
+                          fontSize: `11px`,
+                          letterSpacing: `0.1em`,
+                          textTransform: `uppercase`,
+                          fontWeight: 600,
+                          mr: 1,
+                        }}
+                      >
+                        Models
+                      </Box>
+                      {publication.models.join(` · `)}
+                    </Typography>
+                  )}
                 </Box>
               </Card>
             </Reveal>
@@ -378,6 +398,7 @@ export const pageQuery = graphql`
         frontmatter {
           title
           description
+          tags
           date(formatString: "MMMM D, YYYY")
           featuredImage {
             childImageSharp {
