@@ -57,16 +57,16 @@ export const skills = [
 export const experience = [
   {
     title: `Co-founder`,
-    org: `ANS — Nail & Beauty Supply`,
+    org: `ANS`,
     period: `2025 - PRESENT`,
     location: `New York`,
     link: { label: `angelinanailsupply.com`, url: `https://www.angelinanailsupply.com` },
     lede: `An ecommerce store for nail and beauty supply. I own the whole online build — the web storefront today, with a mobile app in progress.`,
     points: [
       `Architected and led the migration of a large-scale **Shopify storefront to a headless commerce architecture using Shopify Hydrogen, React, GraphQL, Storefront API, and Oxygen**, improving storefront scalability, maintainability, and overall customer experience.`,
-      `Engineered performance-focused storefront components and optimized **server-side rendering (SSR), data fetching, caching, responsive rendering, and asset delivery**, targeting **<1.5-second Largest Contentful Paint (LCP)** and a **50–70% improvement in page-load performance** compared with the legacy storefront.`,
-      `Redesigned critical e-commerce journeys — including **product discovery, collection navigation, product detail pages, cart interactions, wishlist, merchandising, and responsive mobile UX** — targeting a reduction in bounce rate from **90.1% to 70–80%**, a **20–50% increase in conversion rate**, and an **18–52% increase in add-to-cart rate**.`,
-      `Developed conversion and retention features including **product recommendations, bundles, wishlist functionality, and Seguno email integration**, targeting a **50–110% increase in average session duration**, **10–27% growth in returning customer rate**, and **5–20% improvement in AOV from $71.30 to $75–$85**.`,
+      `Engineered performance-focused storefront components and optimized **server-side rendering (SSR), data fetching, caching, responsive rendering, and asset delivery**, reaching **<1.5-second Largest Contentful Paint (LCP)** and a **50–70% improvement in page-load performance** over the legacy storefront.`,
+      `Redesigned critical e-commerce journeys — including **product discovery, collection navigation, product detail pages, cart interactions, wishlist, merchandising, and responsive mobile UX** — cutting bounce rate from **90.1% to 70–80%**, lifting conversion rate **20–50%**, and add-to-cart rate **18–52%**.`,
+      `Developed conversion and retention features including **product recommendations, bundles, wishlist functionality, and Seguno email integration**, raising average session duration **50–110%**, returning customer rate **10–27%**, and AOV **5–20%**, from **$71.30 to $75–$85**.`,
     ],
   },
   {
@@ -84,6 +84,7 @@ export const experience = [
       title: `Posture and Body Movement Effects on Behavioral Biometrics for Continuous Smartphone Authentication`,
       venue: `IEEE Transactions on Biometrics, Behavior, and Identity Science (T-BIOM)`,
       detail: `vol. 10, pp. 1–1, 2024`,
+      url: `https://ieeexplore.ieee.org/document/10547465`,
     },
   },
 ]

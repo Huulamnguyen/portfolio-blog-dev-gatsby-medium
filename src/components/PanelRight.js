@@ -1,7 +1,8 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-import PinnedPosts from "./PinnedPosts"
+import SelectedWork from "./SelectedWork"
+import TechBadges from "./TechBadges"
 import Socials from "./socials"
 import SearchDialog from "./search/search-dialog"
 import { isSearchShortcut } from "./search/shortcut"
@@ -129,6 +130,8 @@ export default function PanelRight({ extraDrawerContent }) {
             </Box>
           )}
 
+          {extraDrawerContent ? null : <TechBadges />}
+
           <Box sx={{ display: `flex`, flexDirection: `column`, gap: 1.25 }}>
             <Button
               component={Link}
@@ -206,7 +209,7 @@ export default function PanelRight({ extraDrawerContent }) {
             />
           </Box>
 
-          {extraDrawerContent ? null : <PinnedPosts />}
+          {extraDrawerContent ? null : <SelectedWork />}
           {extraDrawerContent}
           <Socials />
         </Box>

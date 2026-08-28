@@ -1,12 +1,14 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import PageTabs from "../components/nav/PageTabs"
 import Reveal, { NoScriptReveal } from "../components/about/reveal"
 import StackDiagram from "../components/home/StackDiagram"
+import StoreShowcase from "../components/home/StoreShowcase"
+import ThemeCompare from "../components/home/ThemeCompare"
+import Results from "../components/home/Results"
 import { featured } from "../data/projects"
 
 import Box from "@mui/material/Box"
@@ -32,52 +34,6 @@ const Eyebrow = ({ children }) => (
   >
     {children}
   </Typography>
-)
-
-// A browser frame, so a screenshot reads as a shipped site rather than an image.
-const BrowserFrame = ({ children, url }) => (
-  <Box
-    sx={{
-      borderRadius: `12px`,
-      border: `1px solid`,
-      borderColor: `divider`,
-      overflow: `hidden`,
-      backgroundColor: `background.alt`,
-    }}
-  >
-    <Box
-      sx={{
-        display: `flex`,
-        alignItems: `center`,
-        gap: 1,
-        px: 1.5,
-        py: 1,
-        borderBottom: `1px solid`,
-        borderColor: `divider`,
-      }}
-    >
-      <Box sx={{ display: `flex`, gap: 0.6 }} aria-hidden>
-        {[0, 1, 2].map(i => (
-          <Box
-            key={i}
-            sx={{
-              width: 8,
-              height: 8,
-              borderRadius: `50%`,
-              backgroundColor: `divider`,
-            }}
-          />
-        ))}
-      </Box>
-      <Typography
-        variant="body2"
-        sx={{ color: `text.disabled`, fontSize: `11px` }}
-      >
-        {url}
-      </Typography>
-    </Box>
-    {children}
-  </Box>
 )
 
 const HomePage = ({ location }) => (
@@ -112,7 +68,7 @@ const HomePage = ({ location }) => (
             "@media (max-width: 600px)": { fontSize: `27px !important` },
           }}
         >
-          Angelina Nail Supply doesn&rsquo;t run a theme.
+          ANS doesn&rsquo;t run a theme.
           <br />
           It runs a storefront I built.
         </Typography>
@@ -167,38 +123,8 @@ const HomePage = ({ location }) => (
       </Reveal>
 
       {/* The product itself */}
-      <Reveal delay={80}>
-        <Box sx={{ position: `relative` }}>
-          <BrowserFrame url="angelinanailsupply.com">
-            <StaticImage
-              src="../images/ans/ans-desktop.png"
-              alt="The Angelina Nail Supply storefront on desktop"
-              placeholder="blurred"
-              layout="fullWidth"
-            />
-          </BrowserFrame>
-          <Box
-            sx={{
-              position: `absolute`,
-              right: `-8px`,
-              bottom: `-28px`,
-              width: `112px`,
-              borderRadius: `14px`,
-              border: `1px solid`,
-              borderColor: `divider`,
-              overflow: `hidden`,
-              boxShadow: `0 12px 32px rgba(0,0,0,0.18)`,
-              "@media (max-width: 600px)": { display: `none` },
-            }}
-          >
-            <StaticImage
-              src="../images/ans/ans-mobile.png"
-              alt="The same storefront on mobile"
-              placeholder="blurred"
-              layout="fullWidth"
-            />
-          </Box>
-        </Box>
+      <Box>
+        <StoreShowcase />
         <Box sx={{ display: `flex`, gap: 0.75, flexWrap: `wrap`, mt: 5 }}>
           {featured.stack.map(item => (
             <Chip
@@ -214,7 +140,7 @@ const HomePage = ({ location }) => (
             />
           ))}
         </Box>
-      </Reveal>
+      </Box>
 
       {/* Signature — what actually changed */}
       <Box component="section">
@@ -234,7 +160,13 @@ const HomePage = ({ location }) => (
             A theme you configure, versus a storefront you write
           </Typography>
         </Reveal>
+        <Box sx={{ mb: 5 }}>
+          <ThemeCompare />
+        </Box>
         <StackDiagram />
+        <Box sx={{ mt: 5 }}>
+          <Results />
+        </Box>
       </Box>
 
       <Reveal>

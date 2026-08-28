@@ -279,9 +279,26 @@ export function TimelineItem({ entry, isLast = false, delay = 0, primary = false
             </Typography>
             <Typography
               variant="body2"
-              sx={{ mt: 0.75, color: `text.primary`, fontWeight: 500, lineHeight: 1.6 }}
+              component={entry.publication.url ? MuiLink : `p`}
+              href={entry.publication.url}
+              target={entry.publication.url ? `_blank` : undefined}
+              rel={entry.publication.url ? `noopener noreferrer` : undefined}
+              underline="none"
+              sx={{
+                display: `block`,
+                mt: 0.75,
+                color: `text.primary`,
+                fontWeight: 500,
+                lineHeight: 1.6,
+                ...(entry.publication.url
+                  ? { "&:hover": { color: `primary.main` }, cursor: `pointer` }
+                  : {}),
+              }}
             >
               {entry.publication.title}
+              {entry.publication.url && (
+                <LaunchIcon sx={{ fontSize: `13px`, ml: 0.5, verticalAlign: `-1px` }} />
+              )}
             </Typography>
             <Typography
               variant="body2"

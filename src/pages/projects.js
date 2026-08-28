@@ -112,7 +112,7 @@ const ProjectsPage = ({ data, location }) => {
               >
                 <StaticImage
                   src="../images/ans/ans-desktop.png"
-                  alt="The Angelina Nail Supply storefront"
+                  alt="The ANS storefront"
                   placeholder="blurred"
                   layout="fullWidth"
                 />
@@ -325,14 +325,28 @@ const ProjectsPage = ({ data, location }) => {
                   </Typography>
                   <Typography
                     variant="body2"
+                    component={publication.url ? MuiLink : `p`}
+                    href={publication.url}
+                    target={publication.url ? `_blank` : undefined}
+                    rel={publication.url ? `noopener noreferrer` : undefined}
+                    underline="none"
                     sx={{
+                      display: `block`,
                       mt: 0.75,
                       color: `text.primary`,
                       fontWeight: 500,
                       lineHeight: 1.6,
+                      ...(publication.url
+                        ? { "&:hover": { color: `primary.main` } }
+                        : {}),
                     }}
                   >
                     {publication.title}
+                    {publication.url && (
+                      <LaunchIcon
+                        sx={{ fontSize: `14px`, ml: 0.5, verticalAlign: `-2px` }}
+                      />
+                    )}
                   </Typography>
                   <Typography
                     variant="body2"
