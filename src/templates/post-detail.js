@@ -264,6 +264,7 @@ const PostDetailTemplate = ({ data, location }) => {
                   <Typography color="text.secondary" variant="body2">
                     {post.frontmatter.date}
                     <Box
+                      component="span"
                       sx={{
                         display: "inline",
                         "@media (max-width: 600px)": {

@@ -258,6 +258,7 @@ const Layout = ({
                         <Typography variant="body2">
                           ©{new Date().getFullYear()}
                           <Box
+                            component="span"
                             sx={{
                               display: "inline",
                               "@media (max-width: 600px)": {
