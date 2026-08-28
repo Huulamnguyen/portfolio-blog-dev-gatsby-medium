@@ -9,6 +9,7 @@ import LaunchIcon from "@mui/icons-material/Launch"
 
 import { useReveal, revealSx } from "./reveal"
 import { startYear, isCurrent } from "./period"
+import { splitEmphasis, isMetric } from "./emphasis"
 
 // The current role is the only thing still being sampled, so it is the only
 // thing that keeps moving after the reveal finishes.
@@ -19,6 +20,40 @@ const pulse = keyframes`
 `
 
 const DOT = 9
+
+const Emphasis = ({ text }) => (
+  <>
+    {splitEmphasis(text).map((segment, index) =>
+      segment.strong ? (
+        <Box
+          component="strong"
+          key={index}
+          sx={
+            isMetric(segment.text)
+              ? {
+                  // Accent-coloured text fails contrast at this size, so the
+                  // figure is highlighted instead — the same treatment search
+                  // results use for a match.
+                  fontWeight: 600,
+                  color: `text.primary`,
+                  backgroundColor: `primary.light`,
+                  borderRadius: `3px`,
+                  px: `3px`,
+                  mx: `-1px`,
+                  boxDecorationBreak: `clone`,
+                  WebkitBoxDecorationBreak: `clone`,
+                }
+              : { fontWeight: 600 }
+          }
+        >
+          {segment.text}
+        </Box>
+      ) : (
+        <React.Fragment key={index}>{segment.text}</React.Fragment>
+      )
+    )}
+  </>
+)
 
 export function Timeline({ children }) {
   return <Box>{children}</Box>
@@ -175,7 +210,7 @@ export function TimelineItem({ entry, isLast = false, delay = 0, primary = false
               lineHeight: 1.7,
             }}
           >
-            {entry.lede}
+            <Emphasis text={entry.lede} />
           </Typography>
         )}
 
@@ -214,7 +249,7 @@ export function TimelineItem({ entry, isLast = false, delay = 0, primary = false
                   },
                 }}
               >
-                {point}
+                <Emphasis text={point} />
               </Typography>
             ))}
           </Box>

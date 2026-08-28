@@ -13,7 +13,7 @@ export const skills = [
   {
     icon: `store`,
     label: `Commerce`,
-    body: `Custom Shopify storefronts built on Hydrogen, Shopify's React-based framework, and the Shopify API — rather than customising a pre-built Liquid theme. Currently extending the same foundation to mobile.`,
+    body: `Headless Shopify storefronts on Hydrogen, React, GraphQL, the Storefront API, and Oxygen — rather than customising a pre-built Liquid theme. Currently extending the same foundation to mobile.`,
   },
   {
     icon: `python`,
@@ -56,9 +56,10 @@ export const experience = [
     link: { label: `angelinanailsupply.com`, url: `https://www.angelinanailsupply.com` },
     lede: `An ecommerce store for nail and beauty supply. I own the whole online build — the web storefront today, with a mobile app in progress.`,
     points: [
-      `Rebuilt the entire storefront from scratch on Hydrogen, Shopify's React-based framework, and the Shopify API — replacing the pre-built Liquid theme with a custom storefront.`,
-      `Responsible for the online store end to end: architecture, build, and release.`,
-      `Extending the same Shopify API foundation to a mobile app, currently in development.`,
+      `Architected and led the migration of a large-scale **Shopify storefront to a headless commerce architecture using Shopify Hydrogen, React, GraphQL, Storefront API, and Oxygen**, improving storefront scalability, maintainability, and overall customer experience.`,
+      `Engineered performance-focused storefront components and optimized **server-side rendering (SSR), data fetching, caching, responsive rendering, and asset delivery**, targeting **<1.5-second Largest Contentful Paint (LCP)** and a **50–70% improvement in page-load performance** compared with the legacy storefront.`,
+      `Redesigned critical e-commerce journeys — including **product discovery, collection navigation, product detail pages, cart interactions, wishlist, merchandising, and responsive mobile UX** — targeting a reduction in bounce rate from **90.1% to 70–80%**, a **20–50% increase in conversion rate**, and an **18–52% increase in add-to-cart rate**.`,
+      `Developed conversion and retention features including **product recommendations, bundles, wishlist functionality, and Seguno email integration**, targeting a **50–110% increase in average session duration**, **10–27% growth in returning customer rate**, and **5–20% improvement in AOV from $71.30 to $75–$85**.`,
     ],
   },
   {
