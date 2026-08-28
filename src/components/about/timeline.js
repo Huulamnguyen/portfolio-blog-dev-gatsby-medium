@@ -2,7 +2,10 @@ import * as React from "react"
 import { keyframes } from "@emotion/react"
 
 import Box from "@mui/material/Box"
+import MuiLink from "@mui/material/Link"
 import Typography from "@mui/material/Typography"
+
+import LaunchIcon from "@mui/icons-material/Launch"
 
 import { useReveal, revealSx } from "./reveal"
 import { startYear, isCurrent } from "./period"
@@ -21,7 +24,7 @@ export function Timeline({ children }) {
   return <Box>{children}</Box>
 }
 
-export function TimelineItem({ entry, isLast = false, delay = 0 }) {
+export function TimelineItem({ entry, isLast = false, delay = 0, primary = false }) {
   const { ref, shown, instant } = useReveal()
   const year = startYear(entry.period)
   const current = isCurrent(entry.period)
@@ -57,7 +60,7 @@ export function TimelineItem({ entry, isLast = false, delay = 0 }) {
         sx={{ display: `flex`, flexDirection: `column`, alignItems: `center` }}
       >
         <Box sx={{ position: `relative`, mt: `6px`, lineHeight: 0 }}>
-          {current && shown && (
+          {current && primary && shown && !instant && (
             <Box
               sx={{
                 position: `absolute`,
@@ -123,8 +126,33 @@ export function TimelineItem({ entry, isLast = false, delay = 0 }) {
         >
           {entry.title}
         </Typography>
-        <Typography variant="body2" sx={{ color: `text.primary`, mt: 0.5 }}>
+        <Typography
+          variant="body2"
+          sx={{ color: `text.primary`, mt: 0.5, display: `flex`, alignItems: `center`, gap: 1, flexWrap: `wrap` }}
+          component="div"
+        >
           {entry.org}
+          {entry.link && (
+            <MuiLink
+              href={entry.link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              underline="none"
+              sx={{
+                display: `inline-flex`,
+                alignItems: `center`,
+                gap: 0.5,
+                fontSize: `13px`,
+                color: `primary.main`,
+                borderBottom: `1px solid transparent`,
+                transition: `border-color 200ms ease`,
+                "&:hover": { borderColor: `primary.main` },
+              }}
+            >
+              {entry.link.label}
+              <LaunchIcon sx={{ fontSize: `13px` }} />
+            </MuiLink>
+          )}
         </Typography>
         <Typography
           variant="body2"
@@ -189,6 +217,44 @@ export function TimelineItem({ entry, isLast = false, delay = 0 }) {
                 {point}
               </Typography>
             ))}
+          </Box>
+        )}
+        {entry.publication && (
+          <Box
+            sx={{
+              mt: 2,
+              p: 1.5,
+              borderRadius: `8px`,
+              border: `1px solid`,
+              borderColor: `divider`,
+              backgroundColor: `background.alt`,
+            }}
+          >
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: `11px !important`,
+                letterSpacing: `0.12em`,
+                textTransform: `uppercase`,
+                fontWeight: 600,
+                color: `primary.main`,
+              }}
+            >
+              Published · {entry.publication.role}
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{ mt: 0.75, color: `text.primary`, fontWeight: 500, lineHeight: 1.6 }}
+            >
+              {entry.publication.title}
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{ mt: 0.5, color: `text.disabled`, fontSize: `13px` }}
+            >
+              {entry.publication.venue}
+              {entry.publication.detail ? ` · ${entry.publication.detail}` : ``}
+            </Typography>
           </Box>
         )}
       </Box>

@@ -21,6 +21,7 @@ import BackpackIcon from "@mui/icons-material/Backpack"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 
 import { FaCode } from "react-icons/fa"
+import { FaStore } from "react-icons/fa"
 import { FaDatabase } from "react-icons/fa"
 import { FaExclamationCircle } from "react-icons/fa"
 import { FaGitSquare } from "react-icons/fa"
@@ -28,6 +29,7 @@ import { FaTools } from "react-icons/fa"
 import { FaPython } from "react-icons/fa"
 
 const SKILL_ICONS = {
+  store: FaStore,
   python: FaPython,
   code: FaCode,
   database: FaDatabase,
@@ -219,6 +221,23 @@ const AboutPage = ({ location }) => {
           </Typography>
         </Reveal>
 
+        {/* Experience */}
+        <Box component="section">
+          <Reveal>
+            <SectionHeading>Experience</SectionHeading>
+          </Reveal>
+          <Timeline>
+            {jobs.map((entry, i) => (
+              <TimelineItem
+                key={`${entry.org}-${entry.title}`}
+                entry={entry}
+                isLast={i === jobs.length - 1}
+                primary={i === 0}
+              />
+            ))}
+          </Timeline>
+        </Box>
+
         {/* Skills */}
         <Box component="section">
           <Reveal>
@@ -236,22 +255,6 @@ const AboutPage = ({ location }) => {
               <SkillCard key={skill.label} skill={skill} delay={i * 70} />
             ))}
           </Box>
-        </Box>
-
-        {/* Experience */}
-        <Box component="section">
-          <Reveal>
-            <SectionHeading>Experience</SectionHeading>
-          </Reveal>
-          <Timeline>
-            {jobs.map((entry, i) => (
-              <TimelineItem
-                key={`${entry.org}-${entry.title}`}
-                entry={entry}
-                isLast={i === jobs.length - 1}
-              />
-            ))}
-          </Timeline>
         </Box>
 
         {/* Education */}

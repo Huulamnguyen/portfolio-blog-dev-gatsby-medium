@@ -2,14 +2,19 @@
 
 export const profile = {
   name: `Lam Nguyen`,
-  role: `Machine Learning Researcher`,
+  role: `Co-founder & Software Engineer`,
   location: `New York`,
   avatar: `https://liamdev.vercel.app/avatar.png`,
-  summary: `Experience as Machine Learning Researcher and Software Engineer working on multiple projects and expertise in the design, installation, testing, and maintenance of software systems.`,
+  summary: `Co-founder of ANS, where I rebuilt the storefront from scratch on Hydrogen and the Shopify API instead of a pre-built theme, and lead its web and mobile development. Also a machine learning researcher at NYIT's LAMP Lab working on continuous authentication.`,
   resumeUrl: `https://docs.google.com/document/d/1-JLziUE-TpLsI4EVBPwiEOlSy7nBNDapYvfqL0kYkng/edit?usp=sharing`,
 }
 
 export const skills = [
+  {
+    icon: `store`,
+    label: `Commerce`,
+    body: `Custom Shopify storefronts built on Hydrogen, Shopify's React-based framework, and the Shopify API — rather than customising a pre-built Liquid theme. Currently extending the same foundation to mobile.`,
+  },
   {
     icon: `python`,
     label: `Machine Learning`,
@@ -44,33 +49,38 @@ export const skills = [
 
 export const experience = [
   {
+    title: `Co-founder`,
+    org: `ANS — Nail & Beauty Supply`,
+    period: `2025 - PRESENT`,
+    location: `New York`,
+    link: { label: `angelinanailsupply.com`, url: `https://www.angelinanailsupply.com` },
+    lede: `An ecommerce store for nail and beauty supply. I own the whole online build — the web storefront today, with a mobile app in progress.`,
+    points: [
+      `Rebuilt the entire storefront from scratch on Hydrogen, Shopify's React-based framework, and the Shopify API — replacing the pre-built Liquid theme with a custom storefront.`,
+      `Responsible for the online store end to end: architecture, build, and release.`,
+      `Extending the same Shopify API foundation to a mobile app, currently in development.`,
+    ],
+  },
+  {
     title: `Machine Learning Researcher`,
     org: `NYIT's LAMP Lab`,
     period: `JANUARY 2024 - PRESENT`,
     location: `New York City, New York`,
-    lede: `Continuous authentication systems and behavioral biometrics, under the mentorship of leading cybersecurity scholars. My main research project develops a continuous user authentication system using behavioral biometrics such as keystroke and mouse dynamics.`,
+    lede: `Continuous authentication and behavioral biometrics — identifying people by how they type, move, and hold a device.`,
     points: [
-      `Designing and implementing authentication systems for mobile devices and telerobotics, focusing on machine learning models such as Support Vector Machines, Scaled Manhattan Distance, Random Forest, K-Nearest Neighbors, and Gaussian Mixture Models to improve accuracy and robustness.`,
-      `Running experiments to capture, analyze, and interpret data from accelerometers, gyroscopes, and 3D motion capture devices, building methodologies for feature extraction and tuning models to identify unique behavioral patterns.`,
-      `Collaborating with an interdisciplinary team on approaches to strengthen security across digital and mobile platforms.`,
-      `Specializing in gesture-based authentication, gait recognition, and other behavioral biometrics that drive user-specific authentication mechanisms.`,
-      `Contributing findings to top-tier journals and presenting at major conferences.`,
-      `Engaging with industry leaders to align academic research with practical cybersecurity applications.`,
-      `Mentoring emerging researchers and supporting a collaborative environment within the lab.`,
-      `Practicing integration testing to verify components work correctly together and to catch regressions during development.`,
-      `Published as Assistant Researcher: Posture and Body Movement Effects on Behavioral Biometrics for Continuous Smartphone Authentication. IEEE Transactions on Biometrics, Behavior, and Identity Science (T-BIOM), vol. 10, pp. 1–1, 2024.`,
+      `Building authentication systems for mobile devices and telerobotics using SVM, Scaled Manhattan Distance, Random Forest, K-Nearest Neighbors, and Gaussian Mixture Models.`,
+      `Running experiments on accelerometer, gyroscope, and 3D motion capture data, developing the feature extraction that separates one person's movement from another's.`,
     ],
+    publication: {
+      role: `Assistant Researcher`,
+      title: `Posture and Body Movement Effects on Behavioral Biometrics for Continuous Smartphone Authentication`,
+      venue: `IEEE Transactions on Biometrics, Behavior, and Identity Science (T-BIOM)`,
+      detail: `vol. 10, pp. 1–1, 2024`,
+    },
   },
 ]
 
 export const education = [
-  {
-    title: `PhD in Computer Science`,
-    org: `New York Institute of Technology`,
-    period: `JANUARY 2024 - PRESENT`,
-    location: `New York City, New York`,
-    points: [`Honors: summa cum laude (GPA: 3.70)`],
-  },
   {
     title: `MS in Business Analytics`,
     org: `Adelphi University`,
