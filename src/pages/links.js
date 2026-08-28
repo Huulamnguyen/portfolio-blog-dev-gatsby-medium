@@ -2,14 +2,13 @@ import * as React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
+import PageTabs from "../components/nav/PageTabs"
 import Seo from "../components/seo"
 
 import Button from "@mui/material/Button"
 import Box from "@mui/material/Box"
 import Container from "@mui/material/Container"
 import Typography from "@mui/material/Typography"
-import Tabs from "@mui/material/Tabs"
-import Tab from "@mui/material/Tab"
 
 import IconButton from "@mui/material/IconButton"
 import { HiLink } from "react-icons/hi"
@@ -96,65 +95,7 @@ const NotFoundPage = ({ data, location }) => {
           },
         }}
       >
-        <Box
-          sx={{
-            width: "100%",
-            borderBottom: 1,
-            borderColor: "divider",
-          }}
-        >
-          <Tabs
-            variant="scrollable"
-            scrollButtons="auto"
-            aria-label="nav tabs example"
-            value={2}
-            sx={{
-              "& .MuiTabs-flexContainer": {
-                gap: "1rem",
-              },
-              "& .MuiTabs-indicator": {
-                backgroundColor: "text.primary",
-                height: "1px",
-              },
-            }}
-          >
-            <Tab
-              label="Project"
-              active
-              component="a"
-              href="/"
-              sx={{
-                textTransform: "capitalize",
-                fontWeight: 400,
-                minWidth: "60px",
-                "&.Mui-selected": { color: "text.primary" },
-              }}
-            />
-            <Tab
-              label="About"
-              active
-              component="a"
-              href="/about"
-              sx={{
-                textTransform: "capitalize",
-                fontWeight: 400,
-                minWidth: "60px",
-                "&.Mui-selected": { color: "text.primary" },
-              }}
-            />
-            <Tab
-              label="Connect Me"
-              component="a"
-              href="/links"
-              sx={{
-                textTransform: "capitalize",
-                fontWeight: 400,
-                minWidth: "60px",
-                "&.Mui-selected": { color: "text.primary" },
-              }}
-            />
-          </Tabs>
-        </Box>
+        <PageTabs pathname={location?.pathname} />
         <Box sx={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
           {Object.keys(profiles).map(key => {
             const profile = profiles[key]

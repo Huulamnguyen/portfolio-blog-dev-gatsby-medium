@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import ContactDrawer from "./ContactDrawer"
 import SearchDialog from "./search/search-dialog"
 import { profile } from "../data/resume"
+import { isSamePath } from "./nav/paths"
 
 import Avatar from "@mui/material/Avatar"
 import Box from "@mui/material/Box"
@@ -13,15 +14,12 @@ import Tooltip from "@mui/material/Tooltip"
 import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlined"
 import HomeIcon from "@mui/icons-material/Home"
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined"
+import WorkIcon from "@mui/icons-material/Work"
+import WorkOutlineIcon from "@mui/icons-material/WorkOutline"
 import LinkIcon from "@mui/icons-material/InsertLink"
 import LinkOutlinedIcon from "@mui/icons-material/InsertLinkOutlined"
 import TerminalIcon from "@mui/icons-material/Terminal"
 import SearchIcon from "@mui/icons-material/Search"
-
-const isSamePath = (pathname, to) => {
-  const strip = value => value.replace(/\/+$/, ``) || `/`
-  return strip(pathname || ``) === strip(to)
-}
 
 // Active destinations carry the same filled-circle treatment the site already
 // uses for page-title and search-result icons.
@@ -104,6 +102,13 @@ export default function PanelLeft({ location, ThemeButton }) {
           pathname={pathname}
           ActiveIcon={HomeIcon}
           InactiveIcon={HomeOutlinedIcon}
+        />
+        <NavIcon
+          to="/projects"
+          label="Projects"
+          pathname={pathname}
+          ActiveIcon={WorkIcon}
+          InactiveIcon={WorkOutlineIcon}
         />
         <NavIcon
           to="/links"

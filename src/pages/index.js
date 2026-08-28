@@ -1,244 +1,289 @@
 import * as React from "react"
-import { graphql } from "gatsby"
-import PropTypes from "prop-types"
+import { Link, graphql } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 
-// local imports
-import Post from "../templates/post"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import Tags from "../components/tagsPanel"
+import PageTabs from "../components/nav/PageTabs"
+import Reveal, { NoScriptReveal } from "../components/about/reveal"
+import StackDiagram from "../components/home/StackDiagram"
+import { featured } from "../data/projects"
 
-// MUI components
 import Box from "@mui/material/Box"
+import Button from "@mui/material/Button"
+import Chip from "@mui/material/Chip"
 import Container from "@mui/material/Container"
-import Divider from "@mui/material/Divider"
-import Grid from "@mui/material/Grid"
-import Tabs from "@mui/material/Tabs"
-import Tab from "@mui/material/Tab"
+import MuiLink from "@mui/material/Link"
+import Typography from "@mui/material/Typography"
 
-function TabPanel(props) {
-  const { children, value, index, ...other } = props
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
+import LaunchIcon from "@mui/icons-material/Launch"
 
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
+const Eyebrow = ({ children }) => (
+  <Typography
+    variant="body2"
+    sx={{
+      fontSize: `11px !important`,
+      letterSpacing: `0.12em`,
+      textTransform: `uppercase`,
+      fontWeight: 600,
+      color: `text.disabled`,
+    }}
+  >
+    {children}
+  </Typography>
+)
+
+// A browser frame, so a screenshot reads as a shipped site rather than an image.
+const BrowserFrame = ({ children, url }) => (
+  <Box
+    sx={{
+      borderRadius: `12px`,
+      border: `1px solid`,
+      borderColor: `divider`,
+      overflow: `hidden`,
+      backgroundColor: `background.alt`,
+    }}
+  >
+    <Box
+      sx={{
+        display: `flex`,
+        alignItems: `center`,
+        gap: 1,
+        px: 1.5,
+        py: 1,
+        borderBottom: `1px solid`,
+        borderColor: `divider`,
+      }}
     >
-      {value === index && (
-        <Grid
-          container
-          sx={{ gap: "2rem", "@media (max-width: 600px)": { gap: "1.5rem" } }}
-        >
-          {children}
-        </Grid>
-      )}
-    </div>
-  )
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-}
-
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
-  }
-}
-
-const Index = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMdx.nodes
-
-  const [value, setValue] = React.useState(0)
-  const handleChange = (event, newValue) => {
-    setValue(newValue)
-  }
-
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <Seo title="Portfolio" />
-        <p>
-          No blog posts found. Add markdown posts to "content/posts" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    )
-  }
-
-  return (
-    <Layout location={location} title={siteTitle}>
-      <Seo title="Lam Nguyen Portfolio" />
-      <Container
-        maxWidth="string"
-        disableGutters
-        sx={{
-          maxWidth: "692px",
-          display: "flex",
-          flexDirection: "column",
-          gap: "2rem",
-          "@media (max-width: 600px)": {
-            gap: "1.5rem",
-            px: "1.5rem",
-          },
-        }}
+      <Box sx={{ display: `flex`, gap: 0.6 }} aria-hidden>
+        {[0, 1, 2].map(i => (
+          <Box
+            key={i}
+            sx={{
+              width: 8,
+              height: 8,
+              borderRadius: `50%`,
+              backgroundColor: `divider`,
+            }}
+          />
+        ))}
+      </Box>
+      <Typography
+        variant="body2"
+        sx={{ color: `text.disabled`, fontSize: `11px` }}
       >
-        {/* category tabs selector */}
-        <Box
+        {url}
+      </Typography>
+    </Box>
+    {children}
+  </Box>
+)
+
+const HomePage = ({ location }) => (
+  <Layout location={location} title="Lam Nguyen">
+    <Seo title="Lam Nguyen — Co-founder & Software Engineer" />
+    <NoScriptReveal />
+    <Container
+      maxWidth="string"
+      disableGutters
+      sx={{
+        maxWidth: `692px`,
+        display: `flex`,
+        flexDirection: `column`,
+        gap: `3rem`,
+        "@media (max-width: 600px)": { gap: `2.5rem`, px: `1.5rem` },
+      }}
+    >
+      <PageTabs pathname={location?.pathname} />
+
+      {/* Hero — the claim, next to the thing it is about */}
+      <Reveal component="header">
+        <Eyebrow>Currently building</Eyebrow>
+        <Typography
+          variant="h1"
           sx={{
-            width: "100%",
-            borderBottom: 1,
-            borderColor: "divider",
+            mt: 1.5,
+            fontSize: `34px !important`,
+            lineHeight: 1.2,
+            letterSpacing: `-0.02em`,
+            fontWeight: 600,
+            color: `text.primary`,
+            "@media (max-width: 600px)": { fontSize: `27px !important` },
           }}
         >
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            variant="scrollable"
-            scrollButtons="auto"
-            aria-label="nav tabs example"
+          Angelina Nail Supply doesn&rsquo;t run a theme.
+          <br />
+          It runs a storefront I built.
+        </Typography>
+        <Typography
+          variant="body2"
+          sx={{ mt: 2, color: `text.secondary`, lineHeight: 1.8 }}
+        >
+          I took a Shopify store off a pre-built Liquid theme and rebuilt the
+          whole front end on Hydrogen, React and the Storefront API — so the
+          routing, the rendering and the shopping experience are code I own
+          rather than settings I configure.
+        </Typography>
+
+        <Box sx={{ display: `flex`, gap: 1.5, mt: 3, flexWrap: `wrap` }}>
+          <Button
+            href={featured.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="contained"
+            disableElevation
+            endIcon={<LaunchIcon />}
             sx={{
-              "& .MuiTabs-flexContainer": {
-                gap: "1rem",
-              },
-              "& .MuiTabs-indicator": {
-                backgroundColor: "text.primary",
-                height: "1px",
-              },
+              borderRadius: `2rem`,
+              textTransform: `none`,
+              fontWeight: 400,
+              px: 2.5,
+              backgroundColor: `text.postBody`,
+              color: `background.alt`,
+              "&:hover": { backgroundColor: `text.primary` },
             }}
           >
-            <Tab
-              label="Project"
-              {...a11yProps(0)}
-              sx={{
-                textTransform: "capitalize",
-                fontWeight: 400,
-                minWidth: "60px",
-                "&.Mui-selected": { color: "text.primary" },
-              }}
-            />
-
-            <Tab
-              label="About"
-              component="a"
-              href="/about"
-              sx={{
-                textTransform: "capitalize",
-                fontWeight: 400,
-                minWidth: "60px",
-                "&.Mui-selected": { color: "text.primary" },
-              }}
-            />
-            <Tab
-              label="Connect Me"
-              component="a"
-              href="/links"
-              sx={{
-                textTransform: "capitalize",
-                fontWeight: 400,
-                minWidth: "60px",
-                "&.Mui-selected": { color: "text.primary" },
-              }}
-            />
-          </Tabs>
+            Visit the store
+          </Button>
+          <Button
+            component={Link}
+            to="/projects"
+            variant="outlined"
+            endIcon={<ArrowForwardIcon />}
+            sx={{
+              borderRadius: `2rem`,
+              textTransform: `none`,
+              fontWeight: 400,
+              px: 2.5,
+              color: `text.primary`,
+              borderColor: `divider`,
+              "&:hover": { borderColor: `text.disabled` },
+            }}
+          >
+            See all projects
+          </Button>
         </Box>
+      </Reveal>
 
-        <Tags />
-        {/* all posts panel  */}
-        <TabPanel value={value} index={0} key={"all"}>
-          {posts.map(post => {
-            return (
-              <Grid
-                item
-                xs={12}
-                key={post.id}
-                sx={{
-                  "&:last-child": { "& > hr": { display: "none" } },
-                }}
-              >
-                <Post data={post} />
-                <Divider
-                  sx={{ pt: 4, "@media (max-width: 600px)": { pt: "1.5rem" } }}
-                />
-              </Grid>
-            )
-          })}
-        </TabPanel>
+      {/* The product itself */}
+      <Reveal delay={80}>
+        <Box sx={{ position: `relative` }}>
+          <BrowserFrame url="angelinanailsupply.com">
+            <StaticImage
+              src="../images/ans/ans-desktop.png"
+              alt="The Angelina Nail Supply storefront on desktop"
+              placeholder="blurred"
+              layout="fullWidth"
+            />
+          </BrowserFrame>
+          <Box
+            sx={{
+              position: `absolute`,
+              right: `-8px`,
+              bottom: `-28px`,
+              width: `112px`,
+              borderRadius: `14px`,
+              border: `1px solid`,
+              borderColor: `divider`,
+              overflow: `hidden`,
+              boxShadow: `0 12px 32px rgba(0,0,0,0.18)`,
+              "@media (max-width: 600px)": { display: `none` },
+            }}
+          >
+            <StaticImage
+              src="../images/ans/ans-mobile.png"
+              alt="The same storefront on mobile"
+              placeholder="blurred"
+              layout="fullWidth"
+            />
+          </Box>
+        </Box>
+        <Box sx={{ display: `flex`, gap: 0.75, flexWrap: `wrap`, mt: 5 }}>
+          {featured.stack.map(item => (
+            <Chip
+              key={item}
+              label={item}
+              size="small"
+              sx={{
+                borderRadius: `6px`,
+                backgroundColor: `action.selected`,
+                color: `text.primary`,
+                fontSize: `12px`,
+              }}
+            />
+          ))}
+        </Box>
+      </Reveal>
 
-        {/* categories panels */}
-        {data.allMdx.group.map((category, index) => (
-          <TabPanel value={value} index={index + 1} key={category.fieldValue}>
-            {posts.map(post => {
-              if (post.frontmatter.category === category.fieldValue) {
-                return (
-                  <Grid
-                    item
-                    xs={12}
-                    key={post.id}
-                    sx={{
-                      "&:last-child": { "& > hr": { display: "none" } },
-                    }}
-                  >
-                    <Post data={post} />
-                    <Divider
-                      sx={{
-                        pt: 4,
-                        "@media (max-width: 600px)": { pt: "1.5rem" },
-                      }}
-                    />
-                  </Grid>
-                )
-              }
-              return
-            })}
-          </TabPanel>
-        ))}
-      </Container>
-    </Layout>
-  )
-}
+      {/* Signature — what actually changed */}
+      <Box component="section">
+        <Reveal>
+          <Eyebrow>What changed</Eyebrow>
+          <Typography
+            variant="h2"
+            sx={{
+              mt: 1,
+              mb: 3,
+              fontSize: `20px !important`,
+              fontWeight: 600,
+              letterSpacing: `-0.01em`,
+              color: `text.primary`,
+            }}
+          >
+            A theme you configure, versus a storefront you write
+          </Typography>
+        </Reveal>
+        <StackDiagram />
+      </Box>
 
-export default Index
+      <Reveal>
+        <Box
+          sx={{
+            display: `flex`,
+            alignItems: `center`,
+            justifyContent: `space-between`,
+            gap: 2,
+            flexWrap: `wrap`,
+            pt: 4,
+            borderTop: `1px solid`,
+            borderColor: `divider`,
+          }}
+        >
+          <Typography variant="body2" sx={{ color: `text.secondary` }}>
+            {featured.next}
+          </Typography>
+          <MuiLink
+            component={Link}
+            to="/projects"
+            underline="none"
+            sx={{
+              display: `inline-flex`,
+              alignItems: `center`,
+              gap: 0.75,
+              color: `text.primary`,
+              fontSize: `14px`,
+              borderBottom: `1px solid`,
+              borderColor: `divider`,
+              "&:hover": { borderColor: `primary.main` },
+            }}
+          >
+            See all projects
+            <ArrowForwardIcon sx={{ fontSize: `16px` }} />
+          </MuiLink>
+        </Box>
+      </Reveal>
+    </Container>
+  </Layout>
+)
+
+export default HomePage
 
 export const pageQuery = graphql`
   query {
     site {
       siteMetadata {
         title
-      }
-    }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 200) {
-      group(field: frontmatter___category) {
-        fieldValue
-      }
-      nodes {
-        id
-        excerpt
-        fields {
-          slug
-        }
-        timeToRead
-        frontmatter {
-          category
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-          tags
-          featuredImage {
-            childImageSharp {
-              gatsbyImageData(aspectRatio: 1)
-            }
-            name
-          }
-        }
       }
     }
   }

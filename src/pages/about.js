@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import PageTabs from "../components/nav/PageTabs"
 import Reveal, { NoScriptReveal } from "../components/about/reveal"
 import { Timeline, TimelineItem } from "../components/about/timeline"
 import { profile, skills, experience, education } from "../data/resume"
@@ -13,8 +14,6 @@ import Box from "@mui/material/Box"
 import Container from "@mui/material/Container"
 import IconButton from "@mui/material/IconButton"
 import MuiLink from "@mui/material/Link"
-import Tab from "@mui/material/Tab"
-import Tabs from "@mui/material/Tabs"
 import Typography from "@mui/material/Typography"
 
 import BackpackIcon from "@mui/icons-material/Backpack"
@@ -37,12 +36,6 @@ const SKILL_ICONS = {
   git: FaGitSquare,
   tools: FaTools,
 }
-
-const NAV = [
-  { label: `Project`, href: `/` },
-  { label: `About`, href: `/about` },
-  { label: `Connect Me`, href: `/links` },
-]
 
 const SectionHeading = ({ children }) => (
   <Box
@@ -154,36 +147,7 @@ const AboutPage = ({ location }) => {
           "@media (max-width: 600px)": { gap: `2rem`, px: `1.5rem` },
         }}
       >
-        <Box sx={{ width: `100%`, borderBottom: 1, borderColor: `divider` }}>
-          <Tabs
-            variant="scrollable"
-            scrollButtons="auto"
-            aria-label="Section navigation"
-            value={1}
-            sx={{
-              "& .MuiTabs-flexContainer": { gap: `1rem` },
-              "& .MuiTabs-indicator": {
-                backgroundColor: `text.primary`,
-                height: `1px`,
-              },
-            }}
-          >
-            {NAV.map(item => (
-              <Tab
-                key={item.href}
-                label={item.label}
-                component="a"
-                href={item.href}
-                sx={{
-                  textTransform: `capitalize`,
-                  fontWeight: 400,
-                  minWidth: `60px`,
-                  "&.Mui-selected": { color: `text.primary` },
-                }}
-              />
-            ))}
-          </Tabs>
-        </Box>
+        <PageTabs pathname={location?.pathname} />
 
         {/* Header */}
         <Reveal component="header">
