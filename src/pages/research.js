@@ -154,227 +154,175 @@ const ReadOnIeee = ({ url, size = `14px` }) => (
   </MuiLink>
 )
 
-const ResearchPage = ({ location }) => {
-  const [lead, ...rest] = papers
-
-  return (
-    <Layout
-      location={location}
-      title={
-        <Box sx={{ display: `flex`, alignItems: `center` }}>
-          <IconButton
-            size="small"
-            sx={{
-              mr: 1,
-              backgroundColor: `action.selected`,
-              color: `text.primary`,
-            }}
-          >
-            <ScienceOutlinedIcon fontSize="small" />
-          </IconButton>
-          Research
-        </Box>
-      }
-    >
-      <Seo title="Research" />
-      <NoScriptReveal />
-      <Container
-        maxWidth="string"
-        disableGutters
+const PaperSection = ({ paper, heading }) => (
+  <Box component="section" id={paper.slug}>
+    <Reveal>
+      <Eyebrow accent>
+        {paper.role} · {paper.venueShort} · {paper.year}
+      </Eyebrow>
+      <Typography
+        variant={heading}
+        component={heading}
         sx={{
-          maxWidth: `692px`,
-          display: `flex`,
-          flexDirection: `column`,
-          gap: `2.5rem`,
-          "@media (max-width: 600px)": { gap: `2rem`, px: `1.5rem` },
+          mt: 1.5,
+          fontSize: `26px !important`,
+          lineHeight: 1.25,
+          letterSpacing: `-0.01em`,
+          fontWeight: 600,
+          color: `text.primary`,
+          "@media (max-width: 600px)": { fontSize: `21px !important` },
         }}
       >
-        <PageTabs pathname={location?.pathname} />
+        {paper.title}
+      </Typography>
+      <Box sx={{ mt: 1.5 }}>
+        <Authors paper={paper} />
+      </Box>
+      <Typography
+        variant="body2"
+        sx={{ mt: 0.5, color: `text.disabled`, fontSize: `13px` }}
+      >
+        {paper.venue}
+        {paper.detail ? ` · ${paper.detail}` : ``}
+        {paper.doi ? ` · doi:${paper.doi}` : ``}
+      </Typography>
+      <Box sx={{ mt: 2 }}>
+        <ReadOnIeee url={paper.url} />
+      </Box>
+    </Reveal>
 
-        <Box component="section" id={lead.slug}>
-          <Reveal>
-            <Eyebrow accent>
-              {lead.role} · {lead.venueShort} · {lead.year}
-            </Eyebrow>
+    <Reveal delay={70}>
+      <Typography
+        variant="body2"
+        sx={{
+          mt: 4,
+          pl: 2,
+          borderLeft: `2px solid`,
+          borderColor: `primary.main`,
+          color: `text.primary`,
+          lineHeight: 1.8,
+        }}
+      >
+        {paper.problem}
+      </Typography>
+    </Reveal>
+
+    {paper.metric && (
+      <Reveal delay={110}>
+        <MetricPair metric={paper.metric} />
+      </Reveal>
+    )}
+
+    <Reveal delay={140}>
+      <Box sx={{ mt: 4 }}>
+        <Eyebrow>What we did</Eyebrow>
+        <Typography
+          variant="body2"
+          sx={{ mt: 1, color: `text.primary`, lineHeight: 1.8 }}
+        >
+          {paper.approach}
+        </Typography>
+      </Box>
+    </Reveal>
+
+    <Reveal delay={170}>
+      <Box sx={{ mt: 4 }}>
+        <Eyebrow>Findings</Eyebrow>
+        <Box
+          component="ul"
+          sx={{
+            mt: 1.5,
+            mb: 0,
+            pl: 0,
+            listStyle: `none`,
+            display: `flex`,
+            flexDirection: `column`,
+            gap: 1.25,
+          }}
+        >
+          {paper.findings.map(point => (
             <Typography
-              variant="h1"
+              key={point}
+              component="li"
+              variant="body2"
               sx={{
-                mt: 1.5,
-                fontSize: `26px !important`,
-                lineHeight: 1.25,
-                letterSpacing: `-0.01em`,
-                fontWeight: 600,
+                position: `relative`,
+                pl: 2.25,
                 color: `text.primary`,
-                "@media (max-width: 600px)": { fontSize: `22px !important` },
+                lineHeight: 1.75,
+                "&::before": {
+                  content: `""`,
+                  position: `absolute`,
+                  left: 0,
+                  top: `0.7em`,
+                  width: `6px`,
+                  height: `1px`,
+                  backgroundColor: `text.disabled`,
+                },
               }}
             >
-              {lead.title}
+              {point}
             </Typography>
-            <Box sx={{ mt: 1.5 }}>
-              <Authors paper={lead} />
-            </Box>
-            <Typography
-              variant="body2"
-              sx={{ mt: 0.5, color: `text.disabled`, fontSize: `13px` }}
-            >
-              {lead.venue} · doi:{lead.doi}
-            </Typography>
-            <Box sx={{ mt: 2 }}>
-              <ReadOnIeee url={lead.url} />
-            </Box>
-          </Reveal>
-
-          <Reveal delay={70}>
-            <Typography
-              variant="body2"
-              sx={{
-                mt: 4,
-                pl: 2,
-                borderLeft: `2px solid`,
-                borderColor: `primary.main`,
-                color: `text.primary`,
-                lineHeight: 1.8,
-              }}
-            >
-              {lead.problem}
-            </Typography>
-          </Reveal>
-
-          <Reveal delay={110}>
-            <MetricPair metric={lead.metric} />
-          </Reveal>
-
-          <Reveal delay={140}>
-            <Box sx={{ mt: 4 }}>
-              <Eyebrow>What we did</Eyebrow>
-              <Typography
-                variant="body2"
-                sx={{ mt: 1, color: `text.primary`, lineHeight: 1.8 }}
-              >
-                {lead.approach}
-              </Typography>
-            </Box>
-          </Reveal>
-
-          <Reveal delay={170}>
-            <Box sx={{ mt: 4 }}>
-              <Eyebrow>Findings</Eyebrow>
-              <Box
-                component="ul"
-                sx={{
-                  mt: 1.5,
-                  mb: 0,
-                  pl: 0,
-                  listStyle: `none`,
-                  display: `flex`,
-                  flexDirection: `column`,
-                  gap: 1.25,
-                }}
-              >
-                {lead.findings.map(point => (
-                  <Typography
-                    key={point}
-                    component="li"
-                    variant="body2"
-                    sx={{
-                      position: `relative`,
-                      pl: 2.25,
-                      color: `text.primary`,
-                      lineHeight: 1.75,
-                      "&::before": {
-                        content: `""`,
-                        position: `absolute`,
-                        left: 0,
-                        top: `0.7em`,
-                        width: `6px`,
-                        height: `1px`,
-                        backgroundColor: `text.disabled`,
-                      },
-                    }}
-                  >
-                    {point}
-                  </Typography>
-                ))}
-              </Box>
-            </Box>
-          </Reveal>
-
-          <Reveal delay={200}>
-            <Box sx={{ mt: 4 }}>
-              <Eyebrow>Keywords</Eyebrow>
-              <TechChips items={lead.keywords} sx={{ mt: 1.25 }} />
-            </Box>
-            <Box sx={{ mt: 3 }}>
-              <Eyebrow>Worked in</Eyebrow>
-              <TechChips items={lead.tools} sx={{ mt: 1.25 }} />
-            </Box>
-          </Reveal>
+          ))}
         </Box>
+      </Box>
+    </Reveal>
 
-        {rest.length > 0 && (
-          <Box component="section">
-            <Reveal>
-              <Typography
-                variant="h2"
-                sx={{
-                  fontSize: `13px !important`,
-                  letterSpacing: `0.12em`,
-                  textTransform: `uppercase`,
-                  fontWeight: 600,
-                  color: `text.primary`,
-                  pb: 1,
-                  mb: 3,
-                  borderBottom: `1px solid`,
-                  borderColor: `divider`,
-                }}
-              >
-                Also published
-              </Typography>
-            </Reveal>
-            {rest.map((paper, i) => (
-              <Reveal key={paper.slug} delay={i * 80}>
-                <Box
-                  id={paper.slug}
-                  sx={{
-                    p: 2.5,
-                    borderRadius: `12px`,
-                    border: `1px solid`,
-                    borderColor: `divider`,
-                  }}
-                >
-                  <Eyebrow accent>
-                    {paper.role} · {paper.venueShort} · {paper.year}
-                  </Eyebrow>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      mt: 0.75,
-                      color: `text.primary`,
-                      fontWeight: 600,
-                      lineHeight: 1.6,
-                    }}
-                  >
-                    {paper.title}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{ mt: 0.5, color: `text.disabled`, fontSize: `13px` }}
-                  >
-                    {paper.venue}
-                    {paper.detail ? ` · ${paper.detail}` : ``}
-                  </Typography>
-                  <Box sx={{ mt: 1.5 }}>
-                    <ReadOnIeee url={paper.url} size="13px" />
-                  </Box>
-                </Box>
-              </Reveal>
-            ))}
-          </Box>
-        )}
-      </Container>
-    </Layout>
-  )
-}
+    <Reveal delay={200}>
+      <Box sx={{ mt: 4 }}>
+        <Eyebrow>Keywords</Eyebrow>
+        <TechChips items={paper.keywords} sx={{ mt: 1.25 }} />
+      </Box>
+      <Box sx={{ mt: 3 }}>
+        <Eyebrow>Worked in</Eyebrow>
+        <TechChips items={paper.tools} sx={{ mt: 1.25 }} />
+      </Box>
+    </Reveal>
+  </Box>
+)
+
+const ResearchPage = ({ location }) => (
+  <Layout
+    location={location}
+    title={
+      <Box sx={{ display: `flex`, alignItems: `center` }}>
+        <IconButton
+          size="small"
+          sx={{
+            mr: 1,
+            backgroundColor: `action.selected`,
+            color: `text.primary`,
+          }}
+        >
+          <ScienceOutlinedIcon fontSize="small" />
+        </IconButton>
+        Research
+      </Box>
+    }
+  >
+    <Seo title="Research" />
+    <NoScriptReveal />
+    <Container
+      maxWidth="string"
+      disableGutters
+      sx={{
+        maxWidth: `692px`,
+        display: `flex`,
+        flexDirection: `column`,
+        gap: `3.5rem`,
+        "@media (max-width: 600px)": { gap: `3rem`, px: `1.5rem` },
+      }}
+    >
+      <PageTabs pathname={location?.pathname} />
+      {papers.map((paper, i) => (
+        <React.Fragment key={paper.slug}>
+          {i > 0 && <Box sx={{ borderTop: `1px solid`, borderColor: `divider` }} />}
+          <PaperSection paper={paper} heading={i === 0 ? `h1` : `h2`} />
+        </React.Fragment>
+      ))}
+    </Container>
+  </Layout>
+)
 
 export default ResearchPage
 
