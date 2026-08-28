@@ -14,6 +14,8 @@ import Tooltip from "@mui/material/Tooltip"
 import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlined"
 import HomeIcon from "@mui/icons-material/Home"
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined"
+import ScienceIcon from "@mui/icons-material/Science"
+import ScienceOutlinedIcon from "@mui/icons-material/ScienceOutlined"
 import WorkIcon from "@mui/icons-material/Work"
 import WorkOutlineIcon from "@mui/icons-material/WorkOutline"
 import LinkIcon from "@mui/icons-material/InsertLink"
@@ -109,6 +111,13 @@ export default function PanelLeft({ location, ThemeButton }) {
           pathname={pathname}
           ActiveIcon={WorkIcon}
           InactiveIcon={WorkOutlineIcon}
+        />
+        <NavIcon
+          to="/research"
+          label="Research"
+          pathname={pathname}
+          ActiveIcon={ScienceIcon}
+          InactiveIcon={ScienceOutlinedIcon}
         />
         <NavIcon
           to="/links"

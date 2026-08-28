@@ -1,3 +1,5 @@
+import { papers } from "./research"
+
 // Résumé content. Edit here — about.js is layout only.
 
 export const profile = {
@@ -79,30 +81,7 @@ export const experience = [
       `Building authentication systems for mobile devices and telerobotics using SVM, Scaled Manhattan Distance, Random Forest, K-Nearest Neighbors, and Gaussian Mixture Models.`,
       `Running experiments on accelerometer, gyroscope, and 3D motion capture data, developing the feature extraction that separates one person's movement from another's.`,
     ],
-    publication: {
-      role: `Assistant Researcher`,
-      title: `Posture and Body Movement Effects on Behavioral Biometrics for Continuous Smartphone Authentication`,
-      venue: `IEEE Transactions on Biometrics, Behavior, and Identity Science (T-BIOM)`,
-      detail: `vol. 10, pp. 1–1, 2024`,
-      url: `https://ieeexplore.ieee.org/document/10547465`,
-      tools: [
-        `Python`,
-        `NumPy`,
-        `Pandas`,
-        `Matplotlib`,
-        `scikit-learn`,
-        `Jupyter`,
-      ],
-      models: [
-        `SVM`,
-        `Random Forest`,
-        `KNN`,
-        `GMM`,
-        `CNN`,
-        `RNN`,
-        `Scaled Manhattan Distance`,
-      ],
-    },
+    publications: papers,
   },
 ]
 

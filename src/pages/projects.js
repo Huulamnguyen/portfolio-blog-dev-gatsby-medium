@@ -7,9 +7,10 @@ import Seo from "../components/seo"
 import PageTabs from "../components/nav/PageTabs"
 import Reveal, { NoScriptReveal } from "../components/about/reveal"
 import { featured } from "../data/projects"
-import { experience } from "../data/resume"
+import { papers } from "../data/research"
 import TechChips from "../components/TechChips"
 import { isCategoryTag } from "../components/tech-keys"
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 
 import Box from "@mui/material/Box"
 import Container from "@mui/material/Container"
@@ -21,9 +22,7 @@ import LaunchIcon from "@mui/icons-material/Launch"
 import WorkOutlineIcon from "@mui/icons-material/WorkOutline"
 import { FaShopify, FaReact } from "react-icons/fa"
 
-const publication = experience
-  .map(entry => entry.publication)
-  .find(Boolean)
+
 
 const SectionHeading = ({ children }) => (
   <Typography
@@ -296,89 +295,78 @@ const ProjectsPage = ({ data, location }) => {
         </Box>
 
         {/* Research */}
-        {publication && (
-          <Box component="section">
-            <Reveal>
-              <SectionHeading>Research</SectionHeading>
-            </Reveal>
-            <Reveal delay={60}>
-              <Card>
-                <Box sx={{ p: 2.5 }}>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontSize: `11px !important`,
-                      letterSpacing: `0.12em`,
-                      textTransform: `uppercase`,
-                      fontWeight: 600,
-                      color: `primary.main`,
-                    }}
-                  >
-                    Published · {publication.role}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    component={publication.url ? MuiLink : `p`}
-                    href={publication.url}
-                    target={publication.url ? `_blank` : undefined}
-                    rel={publication.url ? `noopener noreferrer` : undefined}
-                    underline="none"
-                    sx={{
-                      display: `block`,
-                      mt: 0.75,
-                      color: `text.primary`,
-                      fontWeight: 500,
-                      lineHeight: 1.6,
-                      ...(publication.url
-                        ? { "&:hover": { color: `primary.main` } }
-                        : {}),
-                    }}
-                  >
-                    {publication.title}
-                    {publication.url && (
-                      <LaunchIcon
-                        sx={{ fontSize: `14px`, ml: 0.5, verticalAlign: `-2px` }}
-                      />
-                    )}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{ mt: 0.5, color: `text.disabled`, fontSize: `13px` }}
-                  >
-                    {publication.venue} · {publication.detail}
-                  </Typography>
-                  <TechChips items={publication.tools || []} sx={{ mt: 2 }} />
-                  {publication.models?.length > 0 && (
+        <Box component="section">
+          <Reveal>
+            <SectionHeading>Research</SectionHeading>
+          </Reveal>
+          <Box sx={{ display: `flex`, flexDirection: `column`, gap: 2 }}>
+            {papers.map((paper, i) => (
+              <Reveal key={paper.slug} delay={i * 70}>
+                <Card>
+                  <Box sx={{ p: 2.5 }}>
                     <Typography
                       variant="body2"
                       sx={{
-                        mt: 1.5,
-                        color: `text.secondary`,
-                        fontSize: `13px`,
-                        lineHeight: 1.7,
+                        fontSize: `11px !important`,
+                        letterSpacing: `0.12em`,
+                        textTransform: `uppercase`,
+                        fontWeight: 600,
+                        color: `primary.main`,
                       }}
                     >
-                      <Box
-                        component="span"
-                        sx={{
-                          color: `text.disabled`,
-                          fontSize: `11px`,
-                          letterSpacing: `0.1em`,
-                          textTransform: `uppercase`,
-                          fontWeight: 600,
-                          mr: 1,
-                        }}
-                      >
-                        Models
-                      </Box>
-                      {publication.models.join(` · `)}
+                      {paper.role} · {paper.venueShort} · {paper.year}
                     </Typography>
-                  )}
-                </Box>
-              </Card>
-            </Reveal>
+                    <MuiLink
+                      component={Link}
+                      to={`/research#${paper.slug}`}
+                      underline="none"
+                      sx={{
+                        display: `block`,
+                        mt: 0.75,
+                        color: `text.primary`,
+                        fontWeight: 500,
+                        lineHeight: 1.6,
+                        "&:hover": { color: `primary.main` },
+                      }}
+                    >
+                      {paper.title}
+                    </MuiLink>
+                    <Typography
+                      variant="body2"
+                      sx={{ mt: 0.5, color: `text.disabled`, fontSize: `13px` }}
+                    >
+                      {paper.venue}
+                      {paper.detail ? ` · ${paper.detail}` : ``}
+                      {paper.doi ? ` · doi:${paper.doi}` : ``}
+                    </Typography>
+                    <TechChips items={paper.tools || []} sx={{ mt: 2 }} />
+                  </Box>
+                </Card>
+              </Reveal>
+            ))}
           </Box>
-        )}
+          <Reveal delay={140}>
+            <MuiLink
+              component={Link}
+              to="/research"
+              underline="none"
+              sx={{
+                display: `inline-flex`,
+                alignItems: `center`,
+                gap: 0.75,
+                mt: 2.5,
+                color: `text.primary`,
+                fontSize: `14px`,
+                borderBottom: `1px solid`,
+                borderColor: `divider`,
+                "&:hover": { borderColor: `primary.main` },
+              }}
+            >
+              Read the findings
+              <ArrowForwardIcon sx={{ fontSize: `16px` }} />
+            </MuiLink>
+          </Reveal>
+        </Box>
       </Container>
     </Layout>
   )

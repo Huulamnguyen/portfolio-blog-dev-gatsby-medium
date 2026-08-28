@@ -10,6 +10,7 @@ import { isSamePath } from "./paths"
 export const PAGES = [
   { label: `Home`, to: `/` },
   { label: `Projects`, to: `/projects` },
+  { label: `Research`, to: `/research` },
   { label: `About`, to: `/about` },
   { label: `Connect Me`, to: `/links` },
 ]

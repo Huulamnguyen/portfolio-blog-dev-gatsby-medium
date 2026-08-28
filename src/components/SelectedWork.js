@@ -10,9 +10,9 @@ import LaunchIcon from "@mui/icons-material/Launch"
 import { FaShopify } from "react-icons/fa"
 
 import { featured } from "../data/projects"
-import { experience } from "../data/resume"
+import { featuredPaper } from "../data/research"
 
-const publication = experience.map(entry => entry.publication).find(Boolean)
+const publication = featuredPaper
 
 const Mark = ({ children }) => (
   <Box
@@ -141,7 +141,7 @@ export default function SelectedWork() {
               variant="body2"
               sx={{ mt: 0.5, color: `text.disabled`, fontSize: `12px` }}
             >
-              {publication.venue}
+              {publication.venueShort} · {publication.year}
             </Typography>
           </Box>
         </Row>

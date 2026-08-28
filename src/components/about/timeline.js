@@ -254,59 +254,60 @@ export function TimelineItem({ entry, isLast = false, delay = 0, primary = false
             ))}
           </Box>
         )}
-        {entry.publication && (
-          <Box
-            sx={{
-              mt: 2,
-              p: 1.5,
-              borderRadius: `8px`,
-              border: `1px solid`,
-              borderColor: `divider`,
-              backgroundColor: `background.alt`,
-            }}
-          >
-            <Typography
-              variant="body2"
-              sx={{
-                fontSize: `11px !important`,
-                letterSpacing: `0.12em`,
-                textTransform: `uppercase`,
-                fontWeight: 600,
-                color: `primary.main`,
-              }}
-            >
-              Published · {entry.publication.role}
-            </Typography>
-            <Typography
-              variant="body2"
-              component={entry.publication.url ? MuiLink : `p`}
-              href={entry.publication.url}
-              target={entry.publication.url ? `_blank` : undefined}
-              rel={entry.publication.url ? `noopener noreferrer` : undefined}
-              underline="none"
-              sx={{
-                display: `block`,
-                mt: 0.75,
-                color: `text.primary`,
-                fontWeight: 500,
-                lineHeight: 1.6,
-                ...(entry.publication.url
-                  ? { "&:hover": { color: `primary.main` }, cursor: `pointer` }
-                  : {}),
-              }}
-            >
-              {entry.publication.title}
-              {entry.publication.url && (
-                <LaunchIcon sx={{ fontSize: `13px`, ml: 0.5, verticalAlign: `-1px` }} />
-              )}
-            </Typography>
-            <Typography
-              variant="body2"
-              sx={{ mt: 0.5, color: `text.disabled`, fontSize: `13px` }}
-            >
-              {entry.publication.venue}
-              {entry.publication.detail ? ` · ${entry.publication.detail}` : ``}
-            </Typography>
+        {entry.publications?.length > 0 && (
+          <Box sx={{ mt: 2, display: `flex`, flexDirection: `column`, gap: 1.5 }}>
+            {entry.publications.map(paper => (
+              <Box
+                key={paper.title}
+                sx={{
+                  p: 1.5,
+                  borderRadius: `8px`,
+                  border: `1px solid`,
+                  borderColor: `divider`,
+                  backgroundColor: `background.alt`,
+                }}
+              >
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontSize: `11px !important`,
+                    letterSpacing: `0.12em`,
+                    textTransform: `uppercase`,
+                    fontWeight: 600,
+                    color: `primary.main`,
+                  }}
+                >
+                  Published · {paper.role} · {paper.year}
+                </Typography>
+                <MuiLink
+                  href={paper.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  underline="none"
+                  sx={{
+                    display: `block`,
+                    mt: 0.75,
+                    color: `text.primary`,
+                    fontWeight: 500,
+                    lineHeight: 1.6,
+                    "&:hover": { color: `primary.main` },
+                  }}
+                >
+                  {paper.title}
+                  <LaunchIcon
+                    sx={{ fontSize: `13px`, ml: 0.5, verticalAlign: `-1px` }}
+                  />
+                </MuiLink>
+                <Typography
+                  variant="body2"
+                  sx={{ mt: 0.5, color: `text.disabled`, fontSize: `13px` }}
+                >
+                  {paper.venue}
+                  {paper.detail ? ` · ${paper.detail}` : ``}
+                  {paper.doi ? ` · doi:${paper.doi}` : ``}
+                </Typography>
+              </Box>
+            ))}
           </Box>
         )}
       </Box>
