@@ -17,10 +17,12 @@ import TechChips from "../components/TechChips"
 import Box from "@mui/material/Box"
 import Button from "@mui/material/Button"
 import Container from "@mui/material/Container"
+import IconButton from "@mui/material/IconButton"
 import MuiLink from "@mui/material/Link"
 import Typography from "@mui/material/Typography"
 
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
+import HomeIcon from "@mui/icons-material/Home"
 import LaunchIcon from "@mui/icons-material/Launch"
 
 const Eyebrow = ({ children }) => (
@@ -39,7 +41,24 @@ const Eyebrow = ({ children }) => (
 )
 
 const HomePage = ({ location }) => (
-  <Layout location={location} title="Lam Nguyen">
+  <Layout
+    location={location}
+    title={
+      <Box sx={{ display: `flex`, alignItems: `center` }}>
+        <IconButton
+          size="small"
+          sx={{
+            mr: 1,
+            backgroundColor: `action.selected`,
+            color: `text.primary`,
+          }}
+        >
+          <HomeIcon fontSize="small" />
+        </IconButton>
+        Lam Nguyen
+      </Box>
+    }
+  >
     <Seo title={`Lam Nguyen — ${profile.role}`} />
     <NoScriptReveal />
     <Container

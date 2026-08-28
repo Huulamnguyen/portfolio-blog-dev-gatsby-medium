@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import PageTabs from "../components/nav/PageTabs"
+import Reveal, { NoScriptReveal } from "../components/about/reveal"
 import Seo from "../components/seo"
 
 import Button from "@mui/material/Button"
@@ -82,6 +83,7 @@ const NotFoundPage = ({ data, location }) => {
       }
     >
       <Seo title={"My social media links"} />
+      <NoScriptReveal />
       <Container
         maxWidth="string"
         disableGutters
@@ -97,13 +99,14 @@ const NotFoundPage = ({ data, location }) => {
       >
         <PageTabs pathname={location?.pathname} />
         <Box sx={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-          {Object.keys(profiles).map(key => {
+          {Object.keys(profiles).map((key, i) => {
             const profile = profiles[key]
             return (
-              <Button
-                key={profile.name}
+              <Reveal key={profile.name} delay={i * 70}>
+                <Button
                 href={profile.url}
                 target="_blank"
+                rel="noopener noreferrer"
                 variant="outlined"
                 fullWidth
                 size="large"
@@ -114,6 +117,26 @@ const NotFoundPage = ({ data, location }) => {
                   borderColor: "text.disabled",
                   borderRadius: 6,
                   color: "text.primary",
+                  transition: theme =>
+                    theme.transitions.create(
+                      ["border-color", "background-color", "transform"],
+                      { duration: 200 }
+                    ),
+                  "& .MuiButton-endIcon": {
+                    transition: "transform 220ms cubic-bezier(0.16, 1, 0.3, 1)",
+                  },
+                  "&:hover": {
+                    borderColor: "primary.main",
+                    backgroundColor: "action.hover",
+                    transform: "translateX(4px)",
+                  },
+                  "&:hover .MuiButton-endIcon": { transform: "scale(1.15)" },
+                  "@media (prefers-reduced-motion: reduce)": {
+                    transition: "none",
+                    "&:hover": { transform: "none" },
+                    "& .MuiButton-endIcon": { transition: "none" },
+                    "&:hover .MuiButton-endIcon": { transform: "none" },
+                  },
                 }}
               >
                 {profile.name}
@@ -125,7 +148,8 @@ const NotFoundPage = ({ data, location }) => {
                     {profile.desc}
                   </Typography>
                 )}
-              </Button>
+                </Button>
+              </Reveal>
             )
           })}
         </Box>
