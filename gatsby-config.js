@@ -5,9 +5,9 @@ module.exports = {
     title: `Lam Nguyen`,
     author: {
       name: `Lam Nguyen`,
-      summary: `Lam nguyen is a Software Engineer based out of Long Island, NY.`,
+      summary: `Software engineer and entrepreneur in New York, building custom Shopify Hydrogen storefronts.`,
     },
-    description: `Lam nguyen is a Software Engineer based out of Long Island, NY.`,
+    description: `Lam Nguyen is a software engineer and entrepreneur in New York. He builds custom Shopify Hydrogen storefronts and publishes research on continuous authentication.`,
     siteUrl: `https://liamdev.vercel.app/`,
     social: {
       linkedin: `https://www.linkedin.com/in/huulamnguyen/`,
