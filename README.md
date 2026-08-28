@@ -35,12 +35,13 @@ Before developing and working with the codebase on your IDE of choice, there are
 
 ### 0. Node version
 
-This site runs on Gatsby 4, which supports **Node 14–18**. On Node 19+ `gatsby develop`
-crashes during `source and transform nodes` with
-`RangeError: "length" is outside of buffer bounds` (the bundled `msgpackr@1.6.1` uses
-`Buffer#utf8Write` in a way newer Node rejects).
+This project runs on **Node 24** — see `.nvmrc` and the `engines` field.
 
-A `.nvmrc` is included, so run:
+Gatsby 4 ships `msgpackr@1.6.1`, which calls `Buffer#utf8Write` in a way Node 19+
+rejects, so the build dies during `source and transform nodes` with
+`RangeError: "length" is outside of buffer bounds`. The `overrides` block in
+`package.json` pins `msgpackr` to `^1.12.1`, which fixes it. Don't drop that
+override — Vercel no longer offers a Node version old enough to build without it.
 
 ```sh
 nvm use
@@ -65,8 +66,8 @@ Simply add your API / endpoint URL to the action attribute of your form and you'
 Not you must have already installed [Node.JS](https://www.gatsbyjs.com/docs/tutorial/part-zero/#install-nodejs-for-your-appropriate-operating-system) and [Gatsby CLI](https://www.gatsbyjs.com/docs/tutorial/part-zero/#install-nodejs-for-your-appropriate-operating-system). See Gatsby's [Development Environment Setup](https://www.gatsbyjs.com/docs/tutorial/part-zero/) documentation for more details or if you have issues with the CLI installation.
 
 ```bash
-nvm install 18
-nvm use 18
+nvm install 24
+nvm use 24
 
 npm install -g gatsby-cli
 ```
