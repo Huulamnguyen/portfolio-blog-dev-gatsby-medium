@@ -10,10 +10,10 @@ import StoreShowcase from "../components/home/StoreShowcase"
 import ThemeCompare from "../components/home/ThemeCompare"
 import Results from "../components/home/Results"
 import { featured } from "../data/projects"
+import TechChips from "../components/TechChips"
 
 import Box from "@mui/material/Box"
 import Button from "@mui/material/Button"
-import Chip from "@mui/material/Chip"
 import Container from "@mui/material/Container"
 import MuiLink from "@mui/material/Link"
 import Typography from "@mui/material/Typography"
@@ -125,20 +125,9 @@ const HomePage = ({ location }) => (
       {/* The product itself */}
       <Box>
         <StoreShowcase />
-        <Box sx={{ display: `flex`, gap: 0.75, flexWrap: `wrap`, mt: 5 }}>
-          {featured.stack.map(item => (
-            <Chip
-              key={item}
-              label={item}
-              size="small"
-              sx={{
-                borderRadius: `6px`,
-                backgroundColor: `action.selected`,
-                color: `text.primary`,
-                fontSize: `12px`,
-              }}
-            />
-          ))}
+        <Box sx={{ mt: 5 }}>
+          <Eyebrow>Built with</Eyebrow>
+          <TechChips items={featured.stack} sx={{ mt: 1.25 }} />
         </Box>
       </Box>
 
