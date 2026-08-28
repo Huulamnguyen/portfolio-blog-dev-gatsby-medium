@@ -6,6 +6,7 @@ import Seo from "../components/seo"
 import PageTabs from "../components/nav/PageTabs"
 import Reveal, { NoScriptReveal } from "../components/about/reveal"
 import StackDiagram from "../components/home/StackDiagram"
+import ResearchTabs from "../components/home/ResearchTabs"
 import StoreShowcase from "../components/home/StoreShowcase"
 import ThemeCompare from "../components/home/ThemeCompare"
 import Results from "../components/home/Results"
@@ -156,6 +157,26 @@ const HomePage = ({ location }) => (
         <Box sx={{ mt: 5 }}>
           <Results />
         </Box>
+      </Box>
+
+      <Box component="section">
+        <Reveal>
+          <Eyebrow>Published research</Eyebrow>
+          <Typography
+            variant="h2"
+            sx={{
+              mt: 1,
+              mb: 3,
+              fontSize: `20px !important`,
+              fontWeight: 600,
+              letterSpacing: `-0.01em`,
+              color: `text.primary`,
+            }}
+          >
+            Continuous authentication, in one second instead of sixty
+          </Typography>
+        </Reveal>
+        <ResearchTabs />
       </Box>
 
       <Reveal>

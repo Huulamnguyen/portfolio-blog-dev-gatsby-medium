@@ -6,6 +6,8 @@ import Seo from "../components/seo"
 import PageTabs from "../components/nav/PageTabs"
 import Reveal, { NoScriptReveal } from "../components/about/reveal"
 import TechChips from "../components/TechChips"
+import Eyebrow from "../components/research/Eyebrow"
+import MetricPair from "../components/research/MetricPair"
 import { papers } from "../data/research"
 
 import Box from "@mui/material/Box"
@@ -16,98 +18,6 @@ import Typography from "@mui/material/Typography"
 
 import LaunchIcon from "@mui/icons-material/Launch"
 import ScienceOutlinedIcon from "@mui/icons-material/ScienceOutlined"
-
-const Eyebrow = ({ children, accent }) => (
-  <Typography
-    variant="body2"
-    sx={{
-      fontSize: `11px !important`,
-      letterSpacing: `0.12em`,
-      textTransform: `uppercase`,
-      fontWeight: 600,
-      color: accent ? `primary.main` : `text.disabled`,
-    }}
-  >
-    {children}
-  </Typography>
-)
-
-// The paper's headline result, as the two numbers it turns on.
-const MetricPair = ({ metric }) => (
-  <Box
-    sx={{
-      mt: 3,
-      borderRadius: `12px`,
-      border: `1px solid`,
-      borderColor: `divider`,
-      overflow: `hidden`,
-    }}
-  >
-    <Box sx={{ px: 2.5, pt: 2 }}>
-      <Eyebrow>{metric.label}</Eyebrow>
-    </Box>
-    <Box
-      sx={{
-        display: `flex`,
-        flexDirection: { xs: `column`, sm: `row` },
-        gap: { xs: 2, sm: 0 },
-        p: 2.5,
-      }}
-    >
-      <Box sx={{ flex: 1 }}>
-        <Typography
-          variant="body2"
-          sx={{ color: `text.disabled`, fontSize: `13px` }}
-        >
-          {metric.baselineLabel}
-        </Typography>
-        <Typography
-          sx={{
-            mt: 0.5,
-            fontSize: `26px`,
-            fontWeight: 600,
-            lineHeight: 1.1,
-            color: `text.disabled`,
-            fontVariantNumeric: `tabular-nums`,
-          }}
-        >
-          {metric.baseline}
-        </Typography>
-      </Box>
-      <Box
-        aria-hidden
-        sx={{
-          alignSelf: `center`,
-          px: 2,
-          color: `text.disabled`,
-          display: { xs: `none`, sm: `block` },
-        }}
-      >
-        →
-      </Box>
-      <Box sx={{ flex: 1 }}>
-        <Typography
-          variant="body2"
-          sx={{ color: `primary.main`, fontSize: `13px`, fontWeight: 600 }}
-        >
-          {metric.resultLabel}
-        </Typography>
-        <Typography
-          sx={{
-            mt: 0.5,
-            fontSize: `26px`,
-            fontWeight: 600,
-            lineHeight: 1.1,
-            color: `text.primary`,
-            fontVariantNumeric: `tabular-nums`,
-          }}
-        >
-          {metric.result}
-        </Typography>
-      </Box>
-    </Box>
-  </Box>
-)
 
 const Authors = ({ paper }) => (
   <Typography

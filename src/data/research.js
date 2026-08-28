@@ -3,6 +3,7 @@
 export const papers = [
   {
     slug: `keystroke-aligned-body-motion`,
+    short: `Keystroke-aligned body motion`,
     title: `Keystroke-Aligned Body Motion Patterns for Short-Burst Continuous Smartphone Authentication: A Proof-of-Concept Study Using Motion Capture`,
     authors: [
       `N. Cariello`,
@@ -48,6 +49,7 @@ export const papers = [
   },
   {
     slug: `posture-and-body-movement`,
+    short: `Posture and body movement`,
     title: `Posture and Body Movement Effects on Behavioral Biometrics for Continuous Smartphone Authentication`,
     authors: [`L. Nguyen`],
     me: `L. Nguyen`,

@@ -4,7 +4,7 @@ import { papers } from "./research"
 
 export const profile = {
   name: `Lam Nguyen`,
-  role: `Co-founder & Software Engineer`,
+  role: `Software Engineer & Entrepreneur`,
   location: `New York`,
   avatar: `https://liamdev.vercel.app/avatar.png`,
   summary: `Co-founder of ANS, where I rebuilt the storefront from scratch on Hydrogen and the Shopify API instead of a pre-built theme, and lead its web and mobile development. Also a machine learning researcher at NYIT's LAMP Lab working on continuous authentication.`,
