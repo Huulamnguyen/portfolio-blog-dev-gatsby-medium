@@ -8,7 +8,7 @@ module.exports = {
       summary: `Software engineer and entrepreneur in New York, building custom Shopify Hydrogen storefronts.`,
     },
     description: `Lam Nguyen is a software engineer and entrepreneur in New York. He builds custom Shopify Hydrogen storefronts and publishes research on continuous authentication.`,
-    siteUrl: `https://liamdev.vercel.app/`,
+    siteUrl: `https://lamng.io`,
     social: {
       linkedin: `https://www.linkedin.com/in/huulamnguyen/`,
       github: `https://github.com/Huulamnguyen`,
