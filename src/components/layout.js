@@ -127,7 +127,15 @@ const Layout = ({
                 location={location}
                 ThemeButton={<ThemeIconButton darkModeHook={darkModeHook} />}
               />
-              <Box sx={{ display: "block", minWidth: 0, flex: "1 1 auto" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  minWidth: 0,
+                  flex: "1 1 auto",
+                  minHeight: "100vh",
+                }}
+              >
                 <Container
                   disableGutters
                   maxWidth="string"
@@ -200,7 +208,7 @@ const Layout = ({
                     )}
                   </Box>
                 </Container>
-                <main style={{ minHeight: "calc((100vh - 360px) - 116px)" }}>
+                <main style={{ flex: "1 0 auto" }}>
                   {children}
                 </main>
                 <footer>
